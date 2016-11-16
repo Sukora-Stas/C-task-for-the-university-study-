@@ -33,7 +33,7 @@ int main()  {
 			default: puts("Viberite pravilno!");
 		} 
 		puts("Press any key to continue");
-		getch();     // ќжидание нажати€ любой клавиши 
+		_getch();     // ќжидание нажати€ любой клавиши 
 		system ("cls");   // ќчистка экрана
 		} 
 }  
