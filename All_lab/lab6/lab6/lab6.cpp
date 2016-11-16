@@ -1,29 +1,45 @@
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
+#include <iostream>
+#include <string>
 
-#define FIELD_WIDTH 3
-#define STR_LEN 256
-#define STR_MASK "%255[^\n]%*c"
+using namespace std;
 
-int main(void){
-	char str[STR_LEN];
+int main()
+{
+	string str = "asdfasdgfds dsgads gdas ghadfs hads";
+	int k = 0;
+	cout << "Vvedite K= " << endl;
+	cin >> k;
 
-	while (printf("String: ") && scanf_s(STR_MASK, str) == 1){
-		if (strlen(str) < FIELD_WIDTH)
-			printf("2short!\n");
-		else {
-			char * p;
-			for (p = str + FIELD_WIDTH; p > str && !isspace(*p); --p)
-				;
-			if (p == str)
-				printf("Mission imposible!\n");
-			else {
-				*p = '\n';
-				printf("Result:\n%s\n", str);
+	int pos = k;
+	if (k < str.length() && str[k - 1] != ' ')
+	{
+		for (int i = k - 1; i >= 0; i--)
+		{
+			if (str[i] == ' ')
+			{
+				break;
+			}
+			else
+			{
+				pos--;
 			}
 		}
 	}
 
-	return 0;
+	string sub1;
+	string sub2;
+	if (pos < str.length())
+	{
+		sub1 = str.substr(0, pos);
+		sub2 = str.substr(pos, str.length());
+	}
+	else
+	{
+		sub1 = str;
+	}
+	cout << string(sub1) << endl;
+	cout << sub2 << endl;
+
+	system("pause");
+
 }
