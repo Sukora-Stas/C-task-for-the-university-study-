@@ -26,9 +26,7 @@ int main()
 	max = a[0];
 	min = a[0];
 	sredArifm(a, n, &sred, &sum, &max, &min);
-	//cout << a[i] << endl;
-	//cout << "\nPosPol= " << *max << "\nPervOtr= " << *min<<endl;
-	cout << "\nsred=" << sred << endl;
+	cout << "sred=" << sred << endl;
 	system("pause");
 	return 0;
 }
@@ -42,29 +40,20 @@ void sredArifm(int a[], int n, double* sred, int*sum, int*posPol, int*pervOtr)
 
 	for (i = 0; i < n; i++)
 	{
-		printf("%x ", &a[i]);
-		printf("%x ", a + i);
-		printf("%d\n", a[i]);
 		if (a[i] < 0)
 		{
 			pervOtr = a + i;
-			printf("pervOtr %x ", a + i);
-			printf("%x\n", pervOtr);
 			break;
 		}
 	}
 	for (i = n - 1; i >= 0; i--)
 	{
-		printf("%x ", &a[i]);
-		printf("%x ", a + i);
-		printf("%d\n", a[i]);
 		if (!(a[i] % 2))
 		{
 			if (a[i] > 0)
 			{
 				posPol = a + i;
-				printf("posPol %x ", a + i);
-				printf("%x\n", posPol);
+				printf("posPol: %d\n", *posPol);
 				break;
 			}
 		}
@@ -72,11 +61,9 @@ void sredArifm(int a[], int n, double* sred, int*sum, int*posPol, int*pervOtr)
 
 	if (posPol &&  pervOtr)
 	{
-
 		int n;
 		n = 0;
 		*sum = 0;
-		printf("pervOtr: %x ", pervOtr);
 		printf("pervOtr: %d\n", *pervOtr);
 		int* p = pervOtr + 1;
 		while (p != posPol)
@@ -85,14 +72,7 @@ void sredArifm(int a[], int n, double* sred, int*sum, int*posPol, int*pervOtr)
 			p++;
 			n++;
 		}
-		printf("n: %d \n", n);
-
-		printf("sum: %d \n", *sum);
-
 		*sred = (double)*sum / (double)n;
-
-		printf("sred: %f \n", *sred);
-
 	}
 
 
