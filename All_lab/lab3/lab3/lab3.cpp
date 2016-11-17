@@ -26,7 +26,7 @@ int main()
 	max = a[0];
 	min = a[0];
 	sredArifm(a, n, &sred, &sum, &max, &min);
-	cout << "sred=" << sred << endl;
+	cout << "sred=" << sred +1<< endl;
 	system("pause");
 	return 0;
 }
@@ -58,7 +58,6 @@ void sredArifm(int a[], int n, double* sred, int*sum, int*posPol, int*pervOtr)
 			}
 		}
 	}
-
 	if (posPol &&  pervOtr)
 	{
 		int n;
@@ -68,12 +67,10 @@ void sredArifm(int a[], int n, double* sred, int*sum, int*posPol, int*pervOtr)
 		int* p = pervOtr + 1;
 		while (p != posPol)
 		{
-			*sum += abs(*p);
+			*sum +=*p;
 			p++;
 			n++;
 		}
 		*sred = (double)*sum / (double)n;
 	}
-
-
 }
