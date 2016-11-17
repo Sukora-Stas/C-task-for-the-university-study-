@@ -1,0 +1,12 @@
+﻿Сборка начата 17.11.2016 13:34:18.
+     1>Проект "C:\Users\stasi\Source\Repos\Cpp-task-for-the-university-study\All_lab\lab5\lab5\lab5.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt lab5.cpp
+         lab5.cpp
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5\lab5\lab5.cpp(57): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211): см. объявление "fopen"
+     1>Сборка проекта "C:\Users\stasi\Source\Repos\Cpp-task-for-the-university-study\All_lab\lab5\lab5\lab5.vcxproj" завершена (целевые объекты Build) с ошибкой.
+
+Ошибка сборки.
+
+Затраченное время: 00:00:00.94

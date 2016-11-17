@@ -12,12 +12,12 @@ int main()
 	cin >> x;
 	cout << "Vedite Y: ";
 	cin >> y;
-	if (y == 0){
+	while (y == 0){
 		cout << "Division by zero is impossible to enter another number" << endl;
 		cout << "Vedite Y: ";
 		cin >> y;
 	}
-	else if (x / y > 0){
+	if (x / y > 0){
 		s = pow(x + log(abs(y)), 3);
 		cout << "Vetv1  " << endl;
 		cout << "Otvet: s=  " << s << endl;
