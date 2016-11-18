@@ -1,0 +1,127 @@
+﻿Сборка начата 18.11.2016 16:34:42.
+     1>Проект "C:\Users\stasi\Source\Repos\Cpp-task-for-the-university-study\All_lab\lab5_correction\lab5_correction\lab5_correction.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt lab5.cpp
+         lab5.cpp
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(53): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(53): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(53): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(53): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(53): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(54): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(54): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(54): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(54): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(54): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(55): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(55): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(55): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(55): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(55): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(56): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(56): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(56): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(56): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(56): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(57): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(57): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(57): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(57): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(57): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(58): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(58): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(58): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(58): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(58): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(59): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(59): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(59): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(59): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(59): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(60): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(60): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(60): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(60): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(60): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(62): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "»"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(62): error C2065: »: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(62): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "i"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(67): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(67): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(67): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(67): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(67): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(68): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "»"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(68): error C2065: »: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(68): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "name"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(74): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(74): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(74): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(74): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(74): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(77): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(77): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(77): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(77): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(77): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(84): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(84): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(84): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(84): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(84): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(87): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(87): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(87): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(87): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(87): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(88): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "»"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(88): error C2065: »: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(88): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "nst"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(91): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(91): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(91): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(92): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "»"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(92): error C2065: »: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(92): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "stud"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(93): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(93): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(93): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(94): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "»"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(94): error C2065: »: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(94): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "stud"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(95): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(95): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(95): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(96): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "»"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(96): error C2065: »: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(96): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "stud"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(97): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(97): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(97): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(98): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "»"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(98): error C2065: »: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(98): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "stud"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(99): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(99): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(99): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(100): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "»"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(100): error C2065: »: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(100): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "stud"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(109): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(109): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(109): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(109): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(109): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(119): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(119): error C2065: «: необъявленный идентификатор
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(119): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "stud"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(119): error C2143: синтаксическая ошибка: отсутствие ";" перед "строка"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(119): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "endl"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(119): warning C4551: в вызове функции отсутствует список аргументов
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(128): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "«"
+     1>c:\users\stasi\source\repos\cpp-task-for-the-university-study\all_lab\lab5_correction\lab5_correction\lab5.cpp(128): fatal error C1003: число ошибок превышает 100; остановка компиляции
+     1>Сборка проекта "C:\Users\stasi\Source\Repos\Cpp-task-for-the-university-study\All_lab\lab5_correction\lab5_correction\lab5_correction.vcxproj" завершена (целевые объекты Build) с ошибкой.
+
+Ошибка сборки.
+
+Затраченное время: 00:00:01.40
