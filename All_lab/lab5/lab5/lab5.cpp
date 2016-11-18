@@ -1,131 +1,149 @@
-#include <iostream> 
-#include <stdio.h> 
-#include <conio.h> 
-#include <stdlib.h> 
-#include <string.h> 
-
-#pragma warning(disable: 4996)
 #define _CRT_SECURE_NO_WARNINGS
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <io.h>
+
 using namespace std;
+
+/*В радиоателье хранятся квитанции о сданных в ремонт телевизорах.
+* Каждая квитанция содержит марку телевизора, дату приемки в ремонт,
+*  состояние готовности заказа (выполнен, не выполнен).
+*  Вывести информацию о невыполненных на текущий момент заказах.*/
 FILE *fl;
-struct infa
+typedef struct
 {
-	int nomer;
-	char tip[20];
-	char punkt[20];
-	double vr_ot, vr_pr;
-} bf;
-
-
-void show()
-{
-	cout << "nomer: " << bf.nomer << endl
-		<< "tip: " << bf.tip << endl
-		<< "punkt: " << bf.punkt << endl
-		<< "vremya ot: " << bf.vr_ot << endl
-		<< "vremya pr: " << bf.vr_pr << endl
-		<< "-------------------" << endl;
-}
-
-void set()
-{
-	cout << "vvedite nomer: ";
-	cin >> bf.nomer;
-	cout << "vvedite tip: ";
-	cin >> bf.tip;
-	cout << "vvedite punkt: ";
-	cin >> bf.punkt;
-	cout << "vvedite vremya otpravleniya: ";
-	cin >> bf.vr_ot;
-	cout << "vvedite vremya pribitiya: ";
-	cin >> bf.vr_pr;
-}
+	unsigned char marka;
+	unsigned char date;
+	bool check;
+} TStudent;
+TStudent stud[30]; // Массив структур
+char name[20]; // Имя файла
+int nst = 0; // Число введенных структур
+int Menu(); // Создание меню
+void Nnf(); // Ввод имени файла
+void Newf(); // Создание нового файла
+void Spisok(); // Формирование файла
+void Opf(); // Открытие файла
+void Resc(); // Вывод результата на экран
+void Resf(); // Вывод результата в файл
 
 int main()
 {
-	setlocale(LC_ALL, "Rus"); //локализация
-	FILE *f = nullptr;
-	int count = 0;
 	while (true)
 	{
-		try{
-			if ((f = fopen("\\file.txt", "rb")) != 0) //создание чтение 
-				f = fopen("\\file.txt", "ab+"); //окрыть добав 
-			else
-				f = fopen("\\file.txt", "wb+"); // вывод 
+		switch (Menu())
+		{
+		case 1: Nnf(); break;
+		case 2: Newf(); break;
+		case 3: Spisok(); break;
+		case 4: Opf(); break;
+		case 5: Resc(); break;
+		case 6: Resf(); break;
+		case 7: return 0;
+		default: puts("Viberite pravilno!");
 		}
-		catch(exception){
-			cout << "Error";
-		}
-		cout << "1 - запишите информацию\n2 - показать всю информацию\n3 - задание\n4 - выход\n";
-		short int sel;
-		cin >> sel;
-		switch (sel)
-		{
-		case 1:
-		{
-			cout << "Kol-vo zapiseu\? :";
-			cin >> count;
-			for (int i = 0; i < count; i++)
-			{
-				set();
-				fwrite(&bf, sizeof(infa), 1, f); // запись / чтение __что именно__, _размер_ вычисляем размер - сумму всех полей __кол-во раз, куда- в файл. 
-			}
-		}; break;
-
-		case 2:
-		{
-			while (feof(f) == 0)
-			{
-				if (fread(&bf, sizeof(infa), 1, f))
-					show();
-			}
-		}; break;
-
-		case 3:
-		{
-			int nomer[30];
-			double vr_ot[30], vr_pr[30];
-			char *tip[20];
-			char *punkt[20];
-			double vr_pr1;
-			bool temp = true;
-			char *punkt1 = new char;
-			cout << "vvedite punkt: "; cin >> punkt1;
-			cout << "vvedite vremya pribitiya: "; cin >> vr_pr1;
-			cout << "Kol-vo zapiseu\?: ";
-			cin >> count;
-			for (int i = 0; i < count; i++)
-			{
-				fread(&bf, sizeof(infa), 1, f);
-				if ((strcmp(punkt1, bf.punkt) == 0) && (vr_pr1 > bf.vr_pr) && (vr_pr1 > bf.vr_ot))
-				{
-					nomer[i] = bf.nomer;
-					tip[i] = bf.tip;
-					punkt[i] = bf.punkt;
-					vr_ot[i] = bf.vr_ot;
-					vr_pr[i] = bf.vr_pr;
-					cout << "nomer: " << nomer[i] << endl
-						<< "tip: " << tip[i] << endl
-						<< "punkt: " << punkt[i] << endl
-						<< "vremya ot: " << vr_ot[i] << endl
-						<< "vremya pr: " << vr_pr[i] << endl
-						<< "-------------------" << endl;
-					temp = false;
-				}
-				if (temp == true)
-				{
-					cout << "Reysov net " << endl;
-					break;
-				}
-			}
-		}; break;
-		case 4: return 0;
-		default: puts("Выберите правильно!");
-		}
-		puts("Press any key to continue");
-		_getch();
-		system("cls");
+		system("pause");
+		system("cls"); // Очистка экрана
 	}
 }
-
+int Menu() // Меню
+{
+	cout << "VIBERITE:" << endl;
+	cout << "1. Vvod file name" << endl;
+	cout << "2. New file" << endl;
+	cout << "3. Vvesti spisok" << endl;
+	cout << "4. Open file" << endl;
+	cout << "5. Vivesti result" << endl;
+	cout << "6. Vivesti v fail" << endl;
+	cout << "7. Exit" << endl;
+	int i;
+	cin >> i; // Ввод выбранного пункта меню
+	return i;
+}
+void Nnf() // Ввод имени файла
+{
+	cout << "Vvedite file name" << endl;
+	cin >> name;
+}
+void Newf() // Создание нового файла
+{
+	if ((fl = fopen(name, "wb")) == NULL)
+	{
+		cout << "Oshibka pri sozdanii" << endl;
+		exit(1);
+	}
+	cout << "OK" << endl;
+	fclose(fl);
+}
+void Spisok() // Ввод данных в файла
+{
+	if ((fl = fopen(name, "rb+")) == NULL)
+	{
+		cout << "Oshibka pri sozdanii" << endl;
+		exit(1);
+	}
+	cout << "Vvedite chislo TV" << endl;
+	cin >> nst;
+	for (int i = 0; i<nst; i++)
+	{
+		cout << "Vvedite Marku: ";
+		cin >> stud[i].marka;
+		cout << "Vvedite date: ";
+		cin >> stud[i].date;
+		cout << "Vvedite vipolnen ili net: ";
+		cin >> stud[i].check;
+		fwrite(&stud[i], sizeof(TStudent), 1, fl);
+	}
+	fclose(fl);
+}
+void Opf() // Открытие бинарного файла
+{
+	if ((fl = fopen(name, "rb+")) == NULL)
+	{
+		cout << "Oshibka pri otkritii" << endl;
+		exit(1);
+	}
+	nst = 0;
+	TStudent std;
+	while (true)
+	{
+		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+		if (nwrt != 1) break;
+		stud[nst] = std;
+		cout << stud[nst].marka << stud[nst].date << stud[nst].check << endl;
+		nst++;
+	}
+	fclose(fl);
+}
+void Resc() // Вывод результата на экран
+{
+	for (int i = 0; i < nst; i++)
+		if (stud[i].check == false)
+			cout << stud[i].marka << endl;
+}
+//void Resf() // Вывод результата в текстовый файл
+//{
+//	char namet[30];
+//	FILE *ft;
+//	cout << "Vvedite imya faila" << endl;
+//	cin >> namet;
+//	if ((ft = fopen(namet, "w")) == NULL)
+//	{
+//		cout << "Oshibka pri sozdanii" << endl;
+//		exit(1);
+//	}
+//	char s[80];
+//	for (int i = 0; i < nst; i++)
+//		if ((stud[i].matem + stud[i].oaip + stud[i].hist + stud[i].english) / 4 >= '7')
+//		{
+//			strcpy(s, stud[i].fio);
+//			strcat(s, "\n"); // Добавление разделителя строк
+//			fputs(s, ft);
+//		}
+//	fclose(ft);
+//}
