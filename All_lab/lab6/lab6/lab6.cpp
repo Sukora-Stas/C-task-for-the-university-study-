@@ -5,9 +5,10 @@ using namespace std;
 
 int main()
 {
-	string str = "asdfasdgfds dsgads gdas ghadfs hads";
+	string str = "We are each of us angels with only one wing. And we can only fly embracing each other. ";
 	int k = 0;
-	cout << "Vvedite K= " << endl;
+	cout << str << endl;
+	cout << "Vvedite K= ";
 	cin >> k;
 
 	int pos = k;
@@ -25,7 +26,6 @@ int main()
 			}
 		}
 	}
-
 	string sub1;
 	string sub2;
 	if (pos < str.length())
@@ -39,7 +39,5 @@ int main()
 	}
 	cout << string(sub1) << endl;
 	cout << sub2 << endl;
-
 	system("pause");
-
 }
