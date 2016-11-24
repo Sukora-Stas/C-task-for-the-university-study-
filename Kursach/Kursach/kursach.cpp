@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fstream>
 #include <io.h>
 
 using namespace std;
@@ -31,55 +32,91 @@ typedef struct
 } TStudent;
 TStudent stud[30]; // Массив структур
 char name[20]; // Имя файла
+char login[5];
+char password[5];
 int nst = 0; // Число введенных структур
 int Menu(); // Создание меню
-void Nnf(); // Ввод имени файла
+void Authorization(); //Авторизация
 void Newf(); // Создание нового файла
 void Spisok(); // Формирование файла
 void Opf(); // Открытие файла
 void Resc(); // Вывод результата на экран
 void Resf(); // Вывод результата в файл
+void beginMenu();
+
 
 int main()
 {
-	while (true)
-	{
-		switch (Menu())
-		{
-		case 1: Nnf(); break;
-		case 2: Newf(); break;
-		case 3: Spisok(); break;
-		case 4: Opf(); break;
-		case 5: Resc(); break;
-		case 6: Resf(); break;
-		case 7: return 0;
-		default: puts("Viberite pravilno!");
-		}
+	setlocale(LC_ALL, "Russian");
+	beginMenu();
+	Authorization();
+	
+	if (login == (string)"admin" && password == (string)"admin"){
+		cout << "OK!\n";
 		system("pause");
-		system("cls"); // Очистка экрана
+		system("cls");
+		beginMenu();
+		while (true)
+		{
+			switch (Menu())
+			{
+				//case 1: Nnf(); break;
+			case 1: Newf(); break;
+			case 2: Spisok(); break;
+			case 3: Opf(); break;
+			case 4: Resc(); break;
+			case 5: Resf(); break;
+			case 6: return 0;
+			default: puts("Viberite pravilno!");
+			}
+			system("pause");
+			system("cls"); // Очистка экрана
+		}
 	}
+	if (login != (string)"admin" || password != (string)"admin")
+		cout << "Error! Return please!";
 }
+
+void Authorization()
+{
+	cout << "Авторизация!\nВведите ваш логин и пароль\n\n";
+	printf("%15s", "Login: ");
+	cin >> login;
+	printf("%15s", "Password: ");
+	cin >> password;
+}
+
+void beginMenu()
+{
+	printf("%-15s%-8s%-7i", "Сукора С.И.", "Группа", 680961);
+	cout << "\n\nПрограмма расчёта выплат по больничным листам" << endl;
+	cout<<"-------------------------------------------------\n"<<endl;
+	//printf("%-5s%-11d%-25s%-11.4f", "\nAUD", 1, "Австралийский доллар", 44.9883);
+}
+
 int Menu() // Меню
 {
 	cout << "VIBERITE:" << endl;
-	cout << "1. Vvod file name" << endl;
-	cout << "2. New file" << endl;
-	cout << "3. Vvesti spisok" << endl;
-	cout << "4. Open file" << endl;
-	cout << "5. Vivesti result" << endl;
-	cout << "6. Vivesti v fail" << endl;
-	cout << "7. Exit" << endl;
+	//cout << "1. Vvod file name" << endl;
+	cout << "1. New file" << endl;
+	cout << "2. Vvesti spisok" << endl;
+	cout << "3. Open file" << endl;
+	cout << "4. Vivesti result" << endl;
+	cout << "5. Vivesti v fail" << endl;
+	cout << "6. Exit" << endl;
 	int i;
 	cin >> i; // Ввод выбранного пункта меню
 	return i;
 }
-void Nnf() // Ввод имени файла
+//void Nnf() // Ввод имени файла
+//{
+//	cout << "Vvedite file name" << endl;
+//	cin >> name;
+//}
+void Newf() // Создание нового файла
 {
 	cout << "Vvedite file name" << endl;
 	cin >> name;
-}
-void Newf() // Создание нового файла
-{
 	if ((fl = fopen(name, "wb")) == NULL)
 	{
 		cout << "Oshibka pri sozdanii" << endl;
