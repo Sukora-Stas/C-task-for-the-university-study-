@@ -43,8 +43,6 @@ void Opf(); // Открытие файла
 void Resc(); // Вывод результата на экран
 void Resf(); // Вывод результата в файл
 
-
-
 void beginMenu();
 string login;
 string password;
@@ -54,8 +52,6 @@ int main()
 	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "Russian");
 	beginMenu();
-	//Authorization();
-	
 	do
 	{
 		if (Authorization()){
@@ -64,7 +60,6 @@ int main()
 			system("cls");
 			Menu();
 			break;
-
 		}
 		else{
 		cout << "\nError! Return please!\n";
@@ -96,7 +91,6 @@ void beginMenu()
 	printf("%-15s%-8s%-7i", "Сукора С.И.", "Группа", 680961);
 	cout << "\n\nПрограмма расчёта выплат по больничным листам" << endl;
 	cout << "-------------------------------------------------\n" << endl;
-	//printf("%-5s%-11d%-25s%-11.4f", "\nAUD", 1, "Австралийский доллар", 44.9883);
 }
 
 void Spisok() // Ввод данных в файла
@@ -120,6 +114,7 @@ void Spisok() // Ввод данных в файла
 	}
 	fclose(fl);
 }
+
 int Menu() // Меню
 {
 	cout << "Меню:\n" << endl;
