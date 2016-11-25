@@ -78,7 +78,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Authorization.cpp" />
     <ClCompile Include="kursach.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Authorization.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

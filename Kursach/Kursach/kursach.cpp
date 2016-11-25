@@ -5,8 +5,11 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <Windows.h>
 #include <fstream>
 #include <io.h>
+#include <string>
+#include "Authorization.h"
 
 using namespace std;
 
@@ -15,13 +18,12 @@ using namespace std;
  *год; месяц; Количество дней, пропущеных по болезни; оплата за один день.
  *
  *Индивидуальное задание: для месяца Х года У вывести список сотрудников
- * с указанием выплат по больничным оистам для каждого из них. Вывести общую сумму
+ * с указанием выплат по больничным листам для каждого из них. Вывести общую сумму
  * выплат по больничнм листам за интересующий месяц. Х,У вводятся с клавиатуры.
  * 
  * Общее для всех вариантов задание: реализовать авторизацию дл входа в систему(без регистрации!),
  * функционал администратора и функционал пользователя, как минимум три вида поиска, как минимум три вида сортировки.
  */
-
 FILE *fl;
 typedef struct
 {
@@ -32,29 +34,44 @@ typedef struct
 } TStudent;
 TStudent stud[30]; // Массив структур
 char name[20]; // Имя файла
-char login[5];
-char password[5];
 int nst = 0; // Число введенных структур
 int Menu(); // Создание меню
-void Authorization(); //Авторизация
+
 void Newf(); // Создание нового файла
 void Spisok(); // Формирование файла
 void Opf(); // Открытие файла
 void Resc(); // Вывод результата на экран
 void Resf(); // Вывод результата в файл
+
+
+
 void beginMenu();
-
-
+string login;
+string password;
 int main()
 {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "Russian");
 	beginMenu();
 	Authorization();
 	
-	if (login == (string)"admin" && password == (string)"admin"){
-		cout << "OK!\n";
+	do
+	{
+		if (Authorization()){
+			cout << "\nOK!\n";
+			system("pause");
+			system("cls");
+			break;
+		}
+		else{
+		cout << "/nError! Return please!\n";
 		system("pause");
 		system("cls");
+		main();
+		}
+	} while (true);
+		
 		beginMenu();
 		while (true)
 		{
@@ -72,59 +89,23 @@ int main()
 			system("pause");
 			system("cls"); // Очистка экрана
 		}
-	}
-	if (login != (string)"admin" || password != (string)"admin")
-		cout << "Error! Return please!";
-}
 
-void Authorization()
-{
-	cout << "Авторизация!\nВведите ваш логин и пароль\n\n";
-	printf("%15s", "Login: ");
-	cin >> login;
-	printf("%15s", "Password: ");
-	cin >> password;
+	
+	//if (login != (string)"admin" || password != (string)"admin")
+
 }
 
 void beginMenu()
 {
 	printf("%-15s%-8s%-7i", "Сукора С.И.", "Группа", 680961);
 	cout << "\n\nПрограмма расчёта выплат по больничным листам" << endl;
-	cout<<"-------------------------------------------------\n"<<endl;
+	cout << "-------------------------------------------------\n" << endl;
 	//printf("%-5s%-11d%-25s%-11.4f", "\nAUD", 1, "Австралийский доллар", 44.9883);
 }
 
-int Menu() // Меню
-{
-	cout << "VIBERITE:" << endl;
-	//cout << "1. Vvod file name" << endl;
-	cout << "1. New file" << endl;
-	cout << "2. Vvesti spisok" << endl;
-	cout << "3. Open file" << endl;
-	cout << "4. Vivesti result" << endl;
-	cout << "5. Vivesti v fail" << endl;
-	cout << "6. Exit" << endl;
-	int i;
-	cin >> i; // Ввод выбранного пункта меню
-	return i;
-}
-//void Nnf() // Ввод имени файла
-//{
-//	cout << "Vvedite file name" << endl;
-//	cin >> name;
-//}
-void Newf() // Создание нового файла
-{
-	cout << "Vvedite file name" << endl;
-	cin >> name;
-	if ((fl = fopen(name, "wb")) == NULL)
-	{
-		cout << "Oshibka pri sozdanii" << endl;
-		exit(1);
-	}
-	cout << "OK" << endl;
-	fclose(fl);
-}
+
+
+
 void Spisok() // Ввод данных в файла
 {
 	if ((fl = fopen(name, "rb+")) == NULL)
@@ -146,6 +127,45 @@ void Spisok() // Ввод данных в файла
 	}
 	fclose(fl);
 }
+int Menu() // Меню
+{
+	cout << "Меню:\n" << endl;
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "1.", "Созданеи нового файла", '|','\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "2.", "Заполнение БД", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "3.", "Показать БД больничных листов", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "4.", "Вывести результат", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "5.", "Записать в файл", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "6.", "Выход", '|', '\n');
+
+	////cout << "1. Vvod file name" << endl;
+	//cout << "1. New file" << endl;
+	//cout << "2. Vvesti spisok" << endl;
+	//cout << "3. Open file" << endl;
+	//cout << "4. Vivesti result" << endl;
+	//cout << "5. Vivesti v fail" << endl;
+	//cout << "6. Exit" << endl;
+	int i;
+	cin >> i; // Ввод выбранного пункта меню
+	return i;
+}
+//void Nnf() // Ввод имени файла
+//{
+//	cout << "Vvedite file name" << endl;
+//	cin >> name;
+//}
+void Newf() // Создание нового файла
+{
+	cout << "Vvedite file name" << endl;
+	cin >> name;
+	if ((fl = fopen(name, "wb")) == NULL)
+	{
+		cout << "Oshibka pri sozdanii" << endl;
+		exit(1);
+	}
+	cout << "OK" << endl;
+	fclose(fl);
+}
+
 void Opf() // Открытие бинарного файла
 {
 	if ((fl = fopen(name, "rb+")) == NULL)
