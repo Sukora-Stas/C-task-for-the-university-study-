@@ -54,7 +54,7 @@ int main()
 	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "Russian");
 	beginMenu();
-	Authorization();
+	//Authorization();
 	
 	do
 	{
@@ -62,16 +62,14 @@ int main()
 			cout << "\nOK!\n";
 			system("pause");
 			system("cls");
+			Menu();
 			break;
+
 		}
 		else{
-		cout << "/nError! Return please!\n";
+		cout << "\nError! Return please!\n";
 		system("pause");
 		system("cls");
-		main();
-		}
-	} while (true);
-		
 		beginMenu();
 		while (true)
 		{
@@ -89,10 +87,8 @@ int main()
 			system("pause");
 			system("cls"); // ќчистка экрана
 		}
-
-	
-	//if (login != (string)"admin" || password != (string)"admin")
-
+		}
+	} while (true);
 }
 
 void beginMenu()
@@ -102,9 +98,6 @@ void beginMenu()
 	cout << "-------------------------------------------------\n" << endl;
 	//printf("%-5s%-11d%-25s%-11.4f", "\nAUD", 1, "јвстралийский доллар", 44.9883);
 }
-
-
-
 
 void Spisok() // ¬вод данных в файла
 {
@@ -148,11 +141,7 @@ int Menu() // ћеню
 	cin >> i; // ¬вод выбранного пункта меню
 	return i;
 }
-//void Nnf() // ¬вод имени файла
-//{
-//	cout << "Vvedite file name" << endl;
-//	cin >> name;
-//}
+
 void Newf() // —оздание нового файла
 {
 	cout << "Vvedite file name" << endl;
