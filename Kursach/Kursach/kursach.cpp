@@ -33,15 +33,12 @@ typedef struct
 	char month[2];
 	char day[2];
 	char stoimost[3];
-	char sum[7];
-	char check;
-	//char tr = 
 } TStudent;
 TStudent stud[300]; // Массив структур
 char name[20]; // Имя файла
 int nst = 0; // Число введенных структур
 int Menu(); // Создание меню
-
+char sum[7];
 void Newf(); // Создание нового файла
 void Spisok(); // Формирование файла
 void Opf(); // Открытие файла
@@ -63,7 +60,6 @@ int main()
 			cout << "\nOK!\n";
 			system("pause");
 			system("cls");
-			//Menu();
 			break;
 		}
 		cout << "\nError! Return please!\n";
@@ -77,7 +73,6 @@ int main()
 	{
 		switch (Menu())
 		{
-			//case 1: Nnf(); break;
 		case 1: Newf(); break;
 		case 2: Spisok(); break;
 		case 3: Opf(); break;
@@ -100,6 +95,7 @@ void beginMenu()
 
 int Menu() // Меню
 {
+	beginMenu();
 	cout << "Меню:\n" << endl;
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "1.", "Созданеи нового файла", '|','\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "2.", "Заполнение БД", '|', '\n');
@@ -136,6 +132,7 @@ void Spisok() // Ввод данных в файла
 		cin >> stud[i].stoimost;
 		fwrite(&stud[i], sizeof(TStudent), 1, fl);
 		system("cls");
+		beginMenu();
 	}
 	fclose(fl);
 }
@@ -162,12 +159,14 @@ void Opf() // Открытие бинарного файла
 	}
 	nst = 0;
 	TStudent std;
+	printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", '|', "Ф.И.О.", "Год", "Месяц", "кол.", "оплата", '|', '\n');
+	printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", ' ', "", "", "", "дней", "за день, руб.", ' ', '\n');
 	while (true)
 	{
 		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
 		if (nwrt != 1) break;
 		stud[nst] = std;
-		printf("%-3c%-25s%-10s%-10s%-5s%-7s%-1c%-1c", '|',
+		printf("%-3c%-25s%-10s%-10s%-6s%-8s%-1c%-1c", '|',
 			stud[nst].FIO,
 			stud[nst].year,
 				stud[nst].month,
@@ -175,16 +174,16 @@ void Opf() // Открытие бинарного файла
 						stud[nst].stoimost,
 							'|',
 								'\n');
-		cout << stud[nst].FIO << " " << stud[nst].year<< " " << stud[nst].check << endl;
+		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", '|', "", "", "", "", "", '|', '\n');
 		nst++;
 	}
 	fclose(fl);
 }
 void Resc() // Вывод результата на экран
 {
-	for (int i = 0; i < nst; i++)
-		if (stud[i].check == '0')
-			cout << stud[i].FIO << endl;
+	//for (int i = 0; i < nst; i++)
+	//	if (stud[i].check == '0')
+	//		cout << stud[i].FIO << endl;
 }
 void Resf() // Вывод результата в текстовый файл
 {
@@ -199,11 +198,11 @@ void Resf() // Вывод результата в текстовый файл
 	}
 	char s[80];
 	for (int i = 0; i < nst; i++)
-		if (stud[i].check == '0')
-		{
-			strcpy(s, stud[i].FIO);
-			strcat(s, "\n"); // Добавление разделителя строк
-			fputs(s, ft);
-		}
+		//if (stud[i].check == '0')
+		//{
+		//	strcpy(s, stud[i].FIO);
+		//	strcat(s, "\n"); // Добавление разделителя строк
+		//	fputs(s, ft);
+		//}
 	fclose(ft);
 }
