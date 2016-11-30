@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <istream>
 #include <Windows.h>
 #include <fstream>
 #include <io.h>
@@ -27,9 +28,13 @@ using namespace std;
 FILE *fl;
 typedef struct
 {
-	char marka[50];
-	unsigned char date[10];
-	unsigned char check;
+	char FIO[25];
+	char year[10];
+	char month[2];
+	char day[2];
+	char stoimost[3];
+	char sum[7];
+	char check;
 	//char tr = 
 } TStudent;
 TStudent stud[300]; // Массив структур
@@ -112,20 +117,25 @@ void Spisok() // Ввод данных в файла
 {
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Ошибка при сощдании" << endl;
+		cout << "Ошибка при создании" << endl;
 		exit(1);
 	}
-	cout << "Vvedite chislo TV" << endl;
+	cout << "Введите число сотрудников, которых необходимо добавить" << endl;
 	cin >> nst;
 	for (int i = 0; i<nst; i++)
 	{
-		cout << "Vvedite Marku: ";
-		cin >> stud[i].marka;
-		cout << "Vvedite date: ";
-		cin >> stud[i].date;
-		cout << "Vvedite vipolnen ili net: ";
-		cin >> stud[i].check;
+		cout << "Введите Ф.И.О. ";
+		cin >> stud[i].FIO;
+		cout << "Введите год: ";
+		cin >> stud[i].year;
+		cout << "Введите месяц: ";
+		cin >> stud[i].month;
+		cout << "Введите количество дней по болезни: ";
+		cin >> stud[i].day;
+		cout << "Введите оплату за одинь день по болезни: ";
+		cin >> stud[i].stoimost;
 		fwrite(&stud[i], sizeof(TStudent), 1, fl);
+		system("cls");
 	}
 	fclose(fl);
 }
@@ -136,7 +146,7 @@ void Newf() // Создание нового файла
 	cin >> name;
 	if ((fl = fopen(name, "wb")) == NULL)
 	{
-		cout << "Ошибка при сощдании" << endl;
+		cout << "Ошибка при создании" << endl;
 		exit(1);
 	}
 	cout << "OK" << endl;
@@ -147,7 +157,7 @@ void Opf() // Открытие бинарного файла
 {
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Ошибка при сощдании" << endl;
+		cout << "Ошибка при создании" << endl;
 		exit(1);
 	}
 	nst = 0;
@@ -157,8 +167,15 @@ void Opf() // Открытие бинарного файла
 		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
 		if (nwrt != 1) break;
 		stud[nst] = std;
-		printf("%-3c%-30s%-20p%-35hhu%-1c%-1c", '|', stud[nst].marka, stud[nst].date, stud[nst].check, '|', '\n');
-		cout << stud[nst].marka << " " << stud[nst].date<< " " << stud[nst].check << endl;
+		printf("%-3c%-25s%-10s%-10s%-5s%-7s%-1c%-1c", '|',
+			stud[nst].FIO,
+			stud[nst].year,
+				stud[nst].month,
+					stud[nst].day,
+						stud[nst].stoimost,
+							'|',
+								'\n');
+		cout << stud[nst].FIO << " " << stud[nst].year<< " " << stud[nst].check << endl;
 		nst++;
 	}
 	fclose(fl);
@@ -167,7 +184,7 @@ void Resc() // Вывод результата на экран
 {
 	for (int i = 0; i < nst; i++)
 		if (stud[i].check == '0')
-			cout << stud[i].marka << endl;
+			cout << stud[i].FIO << endl;
 }
 void Resf() // Вывод результата в текстовый файл
 {
@@ -177,14 +194,14 @@ void Resf() // Вывод результата в текстовый файл
 	cin >> namet;
 	if ((ft = fopen(namet, "w")) == NULL)
 	{
-		cout << "Ошибка при сощдании" << endl;
+		cout << "Ошибка при соЗдании" << endl;
 		exit(1);
 	}
 	char s[80];
 	for (int i = 0; i < nst; i++)
 		if (stud[i].check == '0')
 		{
-			strcpy(s, stud[i].marka);
+			strcpy(s, stud[i].FIO);
 			strcat(s, "\n"); // Добавление разделителя строк
 			fputs(s, ft);
 		}
