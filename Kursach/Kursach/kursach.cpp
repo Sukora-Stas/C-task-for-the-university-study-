@@ -38,12 +38,11 @@ TStudent stud[30]; // Массив структур
 char name[20]; // Имя файла
 int nst = 0; // Число введенных структур
 int Menu(); // Создание меню
-//char sum[7];
 void Newf(); // Создание нового файла
 void Spisok(); // Формирование файла
-void Opf(); // Открытие файла
-void Resc(); // Вывод результата на экран
-void Resf(); // Вывод результата в файл
+void OutSpisok(); // Открытие файла
+void SelectionFile(); // Вывод результата на экран
+void IZadanie(); // Вывод результата в файл
 string Month();
 
 void beginMenu();
@@ -51,6 +50,11 @@ string login;
 string password;
 int main()
 {
+	HWND hwnd;
+	WCHAR Title[1024];
+	GetConsoleTitle(Title, 1024); // Узнаем имя окна
+	hwnd = FindWindow(NULL, Title); // Узнаем hwnd окна
+	MoveWindow(hwnd, 600, 50,780, 900, TRUE);//xnew,ynew,wnew,hnew -новые положение x,y, ширина и высота
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "Russian");
@@ -75,9 +79,9 @@ int main()
 		{
 		case 1: Newf(); break;
 		case 2: Spisok(); break;
-		case 3: Opf(); break;
-		case 4: Resc(); break;
-		case 5: Resf(); break;
+		case 3: OutSpisok(); break;
+		case 4: SelectionFile(); break;
+		case 5: IZadanie(); break;
 		case 6: return 0;
 		default: 
 			cout<<"Выберите правильно!\n";
@@ -105,7 +109,7 @@ int Menu() // Меню
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "2.", "Заполнение БД", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "3.", "Показать БД больничных листов", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "4.", "Открыть файл", '|', '\n');
-	printf("%-3c%-7s%-35s%-1c%-1c", '|', "5.", "Записать в файл", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "5.", "Индивидуальное задание 1", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "6.", "Выход", '|', '\n');
 	cout << "Ваш выбор: " << endl;
 	int i;
@@ -118,7 +122,9 @@ void Spisok() // Ввод данных в файла
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
 		cout << "Ошибка при создании" << endl;
-		exit(1);
+		system("pause");
+		system("cls");
+		Menu();
 	}
 	cout << "Введите число сотрудников, которых необходимо добавить" << endl;
 	cin >> nst;
@@ -148,19 +154,23 @@ void Newf() // Создание нового файла
 	if ((fl = fopen(name, "wb")) == NULL)
 	{
 		cout << "Ошибка при создании" << endl;
-		exit(1);
+		system("pause");
+		system("cls");
+		Menu();
 	}
 	cout << "OK" << endl;
 	fclose(fl);
 }
 
-void Opf() // Вывод списка сотрудников
+void OutSpisok() // Вывод списка сотрудников
 {
 	int sum = 0;
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
 		cout << "Ошибка при открытие" << endl;
-		exit(1);
+		system("pause");
+		system("cls");
+		Menu();
 	}
 	nst = 0;
 	TStudent std;
@@ -208,39 +218,80 @@ void Opf() // Вывод списка сотрудников
 	fclose(fl);
 }
 
-void Resc() // Выбор файла
+void SelectionFile() // Выбор файла
 {
 	cout << "Введите имя файла: ";
 	cin >> name;
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
 		cout << "Ошибка при открытии, возможно такой файл не найден." << endl;
-		exit(1);
+		system("pause");
+		system("cls");
+		Menu();
 	}
 	else
 	{
 		cout << "OK\n";
 	}
 }
-void Resf() // Вывод результата в текстовый файл
+void IZadanie() // Вывод результата в текстовый файл
 {
-	char namet[30];
-	FILE *ft;
-	cout << "Введите имя файла, текстового" << endl;
-	cin >> namet;
-	if ((ft = fopen(namet, "w")) == NULL)
+	int sum = 0;
+	int all_sum = 0;
+	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Ошибка при соЗдании" << endl;
+		cout << "Ошибка при открытие" << endl;
 		system("pause");
-		Resf();
+		system("cls");
+		Menu();
 	}
-	char s[80];
-	for (int i = 0; i < nst; i++)
-		//if (stud[i].check == '0')
-		//{
-		//	strcpy(s, stud[i].FIO);
-		//	strcat(s, "\n"); // Добавление разделителя строк
-		//	fputs(s, ft);
-		//}
-	fclose(ft);
+
+	nst = 0;
+	TStudent std;
+
+	cout << "|------------------------------------------------------------------------------|\n" << endl;
+	printf("%-3c%-25s%-10s%-10s%-6s%-15s%-10s%-1c%-1c", '|', "Фамилия", "Год", "Месяц", "Кол.", "оплата","Выплатить,", '|', '\n');
+	printf("%-3c%-25s%-10s%-10s%-6s%-15s%-10s%-1c%-1c", '|', "сотрудника", "", "", "дней", "за день, руб."," руб.", '|', '\n');
+	cout << "|------------------------------------------------------------------------------|\n" << endl;
+
+	while (true)
+	{
+		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+		if (nwrt != 1) break;
+		stud[nst] = std;
+
+		char month = atoi(stud[nst].month);
+		string month2;
+		switch (month)
+		{
+		case 1: month2 = "Январь"; break;
+		case 2:month2 = "Февраль"; break;
+		case 3: month2 = "Март"; break;
+		case 4: month2 = "Апрель"; break;
+		case 5:month2 = "Май"; break;
+		case 6: month2 = "Июнь"; break;
+		case 7: month2 = "Июль"; break;
+		case 8:month2 = "Август"; break;
+		case 9: month2 = "Сентябрь"; break;
+		default: cout << "Выберите правильно!\n";
+		}
+		sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
+		all_sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
+		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-10i%-1c%-1c", '|',
+			stud[nst].FIO,
+			stud[nst].year,
+			month2.c_str(),
+			stud[nst].day,
+			stud[nst].stoimost,
+				sum,
+			'|',
+			'\n');
+		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-10s%-1c%-1c", '|', "", "", "", "", "","", '|', '\n');
+		sum = 0;
+		nst++;
+	}
+	cout << "|------------------------------------------------------------------------------|\n" << endl;
+		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-10i%-1c%-1c", '|', "", "", "","", "Сумма:", all_sum, '|', '\n');
+	cout << "|------------------------------------------------------------------------------|\n" << endl;
+	fclose(fl);
 }
