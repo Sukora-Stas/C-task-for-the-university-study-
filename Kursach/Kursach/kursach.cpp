@@ -58,32 +58,32 @@ int main()
 			cout << "\nOK!\n";
 			system("pause");
 			system("cls");
-			Menu();
+			//Menu();
 			break;
 		}
-		else{
 		cout << "\nError! Return please!\n";
 		system("pause");
 		system("cls");
 		beginMenu();
-		while (true)
-		{
-			switch (Menu())
-			{
-				//case 1: Nnf(); break;
-			case 1: Newf(); break;
-			case 2: Spisok(); break;
-			case 3: Opf(); break;
-			case 4: Resc(); break;
-			case 5: Resf(); break;
-			case 6: return 0;
-			default: puts("Viberite pravilno!");
-			}
-			system("pause");
-			system("cls"); // Очистка экрана
-		}
-		}
+		
+		
 	} while (true);
+	while (true)
+	{
+		switch (Menu())
+		{
+			//case 1: Nnf(); break;
+		case 1: Newf(); break;
+		case 2: Spisok(); break;
+		case 3: Opf(); break;
+		case 4: Resc(); break;
+		case 5: Resf(); break;
+		case 6: return 0;
+		default: puts("Viberite pravilno!");
+		}
+		system("pause");
+		system("cls"); // Очистка экрана
+	}
 }
 
 void beginMenu()
@@ -102,7 +102,7 @@ int Menu() // Меню
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "4.", "Вывести результат", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "5.", "Записать в файл", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "6.", "Выход", '|', '\n');
-
+	cout << "Ваш выбор: " << endl;
 	int i;
 	cin >> i; // Ввод выбранного пункта меню
 	return i;
@@ -157,7 +157,8 @@ void Opf() // Открытие бинарного файла
 		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
 		if (nwrt != 1) break;
 		stud[nst] = std;
-		cout << stud[nst].marka << stud[nst].date << stud[nst].check << endl;
+		printf("%-3c%-30s%-20p%-35hhu%-1c%-1c", '|', stud[nst].marka, stud[nst].date, stud[nst].check, '|', '\n');
+		cout << stud[nst].marka << " " << stud[nst].date<< " " << stud[nst].check << endl;
 		nst++;
 	}
 	fclose(fl);
