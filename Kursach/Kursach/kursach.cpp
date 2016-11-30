@@ -38,7 +38,7 @@ TStudent stud[30]; // Массив структур
 char name[20]; // Имя файла
 int nst = 0; // Число введенных структур
 int Menu(); // Создание меню
-char sum[7];
+//char sum[7];
 void Newf(); // Создание нового файла
 void Spisok(); // Формирование файла
 void Opf(); // Открытие файла
@@ -154,8 +154,9 @@ void Newf() // Создание нового файла
 	fclose(fl);
 }
 
-void Opf() // Открытие бинарного файла
+void Opf() // Вывод списка сотрудников
 {
+	int sum = 0;
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
 		cout << "Ошибка при открытие" << endl;
@@ -174,6 +175,7 @@ void Opf() // Открытие бинарного файла
 		if (nwrt != 1) break;
 		stud[nst] = std;
 		char month = *stud[nst].month;
+		sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
 		string month2;
 		switch (month)
 		{
@@ -200,6 +202,8 @@ void Opf() // Открытие бинарного файла
 		
 		nst++;
 	}
+	cout << "|--------------------------------------------------------------------|\n" << endl;
+	printf("%-3c%-25s%-10s%-10s%-6s%-15i%-1c%-1c", '|', "", "", "", "Сумма:", sum, '|', '\n');
 	cout << "|--------------------------------------------------------------------|\n" << endl;
 	fclose(fl);
 }
