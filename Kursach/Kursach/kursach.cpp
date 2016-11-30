@@ -14,7 +14,7 @@
 using namespace std;
 
 /*Разработка программы расчёта выплат по больничным листам
- *Сведения о больничных сотрудников компании имеют следующий вид: Ф.И.О сотрудника;
+ *Сведения о больничных листах сотрудников компании имеют следующий вид: Ф.И.О сотрудника;
  *год; месяц; Количество дней, пропущеных по болезни; оплата за один день.
  *
  *Индивидуальное задание: для месяца Х года У вывести список сотрудников
@@ -32,7 +32,7 @@ typedef struct
 	unsigned char check;
 	//char tr = 
 } TStudent;
-TStudent stud[30]; // Массив структур
+TStudent stud[300]; // Массив структур
 char name[20]; // Имя файла
 int nst = 0; // Число введенных структур
 int Menu(); // Создание меню
@@ -93,11 +93,26 @@ void beginMenu()
 	cout << "-------------------------------------------------\n" << endl;
 }
 
+int Menu() // Меню
+{
+	cout << "Меню:\n" << endl;
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "1.", "Созданеи нового файла", '|','\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "2.", "Заполнение БД", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "3.", "Показать БД больничных листов", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "4.", "Вывести результат", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "5.", "Записать в файл", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "6.", "Выход", '|', '\n');
+
+	int i;
+	cin >> i; // Ввод выбранного пункта меню
+	return i;
+}
+
 void Spisok() // Ввод данных в файла
 {
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Oshibka pri sozdanii" << endl;
+		cout << "Ошибка при сощдании" << endl;
 		exit(1);
 	}
 	cout << "Vvedite chislo TV" << endl;
@@ -115,35 +130,13 @@ void Spisok() // Ввод данных в файла
 	fclose(fl);
 }
 
-int Menu() // Меню
-{
-	cout << "Меню:\n" << endl;
-	printf("%-3c%-7s%-35s%-1c%-1c", '|', "1.", "Созданеи нового файла", '|','\n');
-	printf("%-3c%-7s%-35s%-1c%-1c", '|', "2.", "Заполнение БД", '|', '\n');
-	printf("%-3c%-7s%-35s%-1c%-1c", '|', "3.", "Показать БД больничных листов", '|', '\n');
-	printf("%-3c%-7s%-35s%-1c%-1c", '|', "4.", "Вывести результат", '|', '\n');
-	printf("%-3c%-7s%-35s%-1c%-1c", '|', "5.", "Записать в файл", '|', '\n');
-	printf("%-3c%-7s%-35s%-1c%-1c", '|', "6.", "Выход", '|', '\n');
-
-	////cout << "1. Vvod file name" << endl;
-	//cout << "1. New file" << endl;
-	//cout << "2. Vvesti spisok" << endl;
-	//cout << "3. Open file" << endl;
-	//cout << "4. Vivesti result" << endl;
-	//cout << "5. Vivesti v fail" << endl;
-	//cout << "6. Exit" << endl;
-	int i;
-	cin >> i; // Ввод выбранного пункта меню
-	return i;
-}
-
 void Newf() // Создание нового файла
 {
-	cout << "Vvedite file name" << endl;
+	cout << "Введите имя файла" << endl;
 	cin >> name;
 	if ((fl = fopen(name, "wb")) == NULL)
 	{
-		cout << "Oshibka pri sozdanii" << endl;
+		cout << "Ошибка при сощдании" << endl;
 		exit(1);
 	}
 	cout << "OK" << endl;
@@ -154,7 +147,7 @@ void Opf() // Открытие бинарного файла
 {
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Oshibka pri otkritii" << endl;
+		cout << "Ошибка при сощдании" << endl;
 		exit(1);
 	}
 	nst = 0;
@@ -179,11 +172,11 @@ void Resf() // Вывод результата в текстовый файл
 {
 	char namet[30];
 	FILE *ft;
-	cout << "Vvedite imya faila" << endl;
+	cout << "Введите имя файла, текстового" << endl;
 	cin >> namet;
 	if ((ft = fopen(namet, "w")) == NULL)
 	{
-		cout << "Oshibka pri sozdanii" << endl;
+		cout << "Ошибка при сощдании" << endl;
 		exit(1);
 	}
 	char s[80];
