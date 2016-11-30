@@ -44,6 +44,7 @@ void Spisok(); // Формирование файла
 void Opf(); // Открытие файла
 void Resc(); // Вывод результата на экран
 void Resf(); // Вывод результата в файл
+string Month();
 
 void beginMenu();
 string login;
@@ -66,9 +67,8 @@ int main()
 		system("pause");
 		system("cls");
 		beginMenu();
-		
-		
 	} while (true);
+
 	while (true)
 	{
 		switch (Menu())
@@ -79,7 +79,11 @@ int main()
 		case 4: Resc(); break;
 		case 5: Resf(); break;
 		case 6: return 0;
-		default: puts("Viberite pravilno!");
+		default: 
+			cout<<"Выберите правильно!\n";
+			system("pause");
+			system("cls");
+			Menu();
 		}
 		system("pause");
 		system("cls"); // Очистка экрана
@@ -100,7 +104,7 @@ int Menu() // Меню
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "1.", "Созданеи нового файла", '|','\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "2.", "Заполнение БД", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "3.", "Показать БД больничных листов", '|', '\n');
-	printf("%-3c%-7s%-35s%-1c%-1c", '|', "4.", "Вывести результат", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "4.", "Открыть файл", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "5.", "Записать в файл", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "6.", "Выход", '|', '\n');
 	cout << "Ваш выбор: " << endl;
@@ -154,19 +158,25 @@ void Opf() // Открытие бинарного файла
 {
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Ошибка при создании" << endl;
+		cout << "Ошибка при открытие" << endl;
 		exit(1);
 	}
 	nst = 0;
 	TStudent std;
+	cout << "---------------------------------------------------------------------|\n" << endl;
 	printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", '|', "Ф.И.О.", "Год", "Месяц", "кол.", "оплата", '|', '\n');
 	printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", ' ', "", "", "", "дней", "за день, руб.", ' ', '\n');
+	cout << "---------------------------------------------------------------------|\n" << endl;
+	
+	
 	while (true)
 	{
 		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
 		if (nwrt != 1) break;
 		stud[nst] = std;
-		printf("%-3c%-25s%-10s%-10s%-6s%-8s%-1c%-1c", '|',
+		int month = reinterpret_cast<int>(stud[nst].month);
+		Month();
+		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", '|',
 			stud[nst].FIO,
 			stud[nst].year,
 				stud[nst].month,
@@ -177,10 +187,36 @@ void Opf() // Открытие бинарного файла
 		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", '|', "", "", "", "", "", '|', '\n');
 		nst++;
 	}
+	cout << "---------------------------------------------------------------------|\n" << endl;
 	fclose(fl);
 }
-void Resc() // Вывод результата на экран
+string Month(int month)
 {
+	string month2;
+	switch (month)
+	{
+	case 1: month2 = "Январ"; return month2; break;
+	case 2: Spisok(); break;
+	case 3: Opf(); break;
+	case 4: Resc(); break;
+	case 5: Resf(); break;
+	default: cout << "Выберите правильно!\n";
+	}
+	return 0;
+}
+void Resc() // Выбор файла
+{
+	cout << "Введите имя файла: ";
+	cin >> name;
+	if ((fl = fopen(name, "rb+")) == NULL)
+	{
+		cout << "Ошибка при открытии" << endl;
+		exit(1);
+	}
+	else
+	{
+		cout << "OK\n";
+	}
 	//for (int i = 0; i < nst; i++)
 	//	if (stud[i].check == '0')
 	//		cout << stud[i].FIO << endl;
