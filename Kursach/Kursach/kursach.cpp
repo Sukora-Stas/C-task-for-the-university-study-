@@ -42,7 +42,9 @@ void Newf(); // Создание нового файла
 void Spisok(); // Формирование файла
 void OutSpisok(); // Открытие файла
 void SelectionFile(); // Вывод результата на экран
-void IZadanie(); // Вывод результата в файл
+void Zadanie();
+void IZadanie1();
+void IZadanie2();
 string Month();
 
 void beginMenu();
@@ -54,7 +56,7 @@ int main()
 	WCHAR Title[1024];
 	GetConsoleTitle(Title, 1024); // Узнаем имя окна
 	hwnd = FindWindow(NULL, Title); // Узнаем hwnd окна
-	MoveWindow(hwnd, 600, 50,780, 900, TRUE);//xnew,ynew,wnew,hnew -новые положение x,y, ширина и высота
+	MoveWindow(hwnd, 600, 50,850, 900, TRUE);//xnew,ynew,wnew,hnew -новые положение x,y, ширина и высота
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "Russian");
@@ -81,8 +83,9 @@ int main()
 		case 2: Spisok(); break;
 		case 3: OutSpisok(); break;
 		case 4: SelectionFile(); break;
-		case 5: IZadanie(); break;
-		case 6: return 0;
+		case 5: IZadanie1(); break;
+		case 6: Zadanie(); break;
+		case 7: return 0;
 		default: 
 			cout<<"Выберите правильно!\n";
 			system("pause");
@@ -110,7 +113,8 @@ int Menu() // Меню
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "3.", "Показать БД больничных листов", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "4.", "Открыть файл", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "5.", "Индивидуальное задание 1", '|', '\n');
-	printf("%-3c%-7s%-35s%-1c%-1c", '|', "6.", "Выход", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "6.", "Задание", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "7.", "Выход", '|', '\n');
 	cout << "Ваш выбор: " << endl;
 	int i;
 	cin >> i; // Ввод выбранного пункта меню
@@ -234,8 +238,19 @@ void SelectionFile() // Выбор файла
 		cout << "OK\n";
 	}
 }
-void IZadanie() // Вывод результата в текстовый файл
+
+void Zadanie()
 {
+	cout << "Задание\n ";
+	cout << "для месяца Х года У вывести список сотрудников\n ";
+	cout << "с указанием выплат по больничным листам для каждого из них\n";
+}
+
+void IZadanie1() // Вывод результата в текстовый файл
+{
+	cout << "Задание\n ";
+	cout << "для месяца Х года У вывести список сотрудников\n ";
+	cout << "с указанием выплат по больничным листам для каждого из них\n";
 	int sum = 0;
 	int all_sum = 0;
 	if ((fl = fopen(name, "rb+")) == NULL)
