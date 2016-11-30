@@ -7,7 +7,7 @@
 #include <string.h>
 #include <istream>
 #include <Windows.h>
-#include <fstream>
+#include <cstdio>
 #include <io.h>
 #include <string>
 #include "Authorization.h"
@@ -31,10 +31,10 @@ typedef struct
 	char FIO[25];
 	char year[10];
 	char month[2];
-	char day[2];
+	char day[3];
 	char stoimost[3];
 } TStudent;
-TStudent stud[300]; // Массив структур
+TStudent stud[30]; // Массив структур
 char name[20]; // Имя файла
 int nst = 0; // Число введенных структур
 int Menu(); // Создание меню
@@ -124,7 +124,7 @@ void Spisok() // Ввод данных в файла
 	cin >> nst;
 	for (int i = 0; i<nst; i++)
 	{
-		cout << "Введите Ф.И.О. ";
+		cout << "Введите Фамилию ";
 		cin >> stud[i].FIO;
 		cout << "Введите год: ";
 		cin >> stud[i].year;
@@ -163,63 +163,60 @@ void Opf() // Открытие бинарного файла
 	}
 	nst = 0;
 	TStudent std;
-	cout << "---------------------------------------------------------------------|\n" << endl;
-	printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", '|', "Ф.И.О.", "Год", "Месяц", "кол.", "оплата", '|', '\n');
-	printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", ' ', "", "", "", "дней", "за день, руб.", ' ', '\n');
-	cout << "---------------------------------------------------------------------|\n" << endl;
-	
+	cout << "|--------------------------------------------------------------------|\n" << endl;
+	printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", '|', "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '\n');
+	printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", '|', "сотрудника", "", "", "дней", "за день, руб.", '|', '\n');
+	cout << "|--------------------------------------------------------------------|\n" << endl;
 	
 	while (true)
 	{
 		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
 		if (nwrt != 1) break;
 		stud[nst] = std;
-		int month = reinterpret_cast<int>(stud[nst].month);
-		Month();
+		char month = *stud[nst].month;
+		string month2;
+		switch (month)
+		{
+		case '1': month2 = "Январь"; break;
+		case '2':month2 = "Февраль"; break;
+		case '3': month2 = "Март"; break;
+		case '4': month2 = "Апрель"; break;
+		case '5':month2 = "Май"; break;
+		case '6': month2 = "Июнь"; break;
+		case '7': month2 = "Июль"; break;
+		case '8':month2 = "Август"; break;
+		case '9': month2 = "Сентябрь"; break;		
+		default: cout << "Выберите правильно!\n";
+		}
 		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", '|',
 			stud[nst].FIO,
 			stud[nst].year,
-				stud[nst].month,
+				month2.c_str(),
 					stud[nst].day,
 						stud[nst].stoimost,
 							'|',
 								'\n');
 		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", '|', "", "", "", "", "", '|', '\n');
+		
 		nst++;
 	}
-	cout << "---------------------------------------------------------------------|\n" << endl;
+	cout << "|--------------------------------------------------------------------|\n" << endl;
 	fclose(fl);
 }
-string Month(int month)
-{
-	string month2;
-	switch (month)
-	{
-	case 1: month2 = "Январ"; return month2; break;
-	case 2: Spisok(); break;
-	case 3: Opf(); break;
-	case 4: Resc(); break;
-	case 5: Resf(); break;
-	default: cout << "Выберите правильно!\n";
-	}
-	return 0;
-}
+
 void Resc() // Выбор файла
 {
 	cout << "Введите имя файла: ";
 	cin >> name;
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Ошибка при открытии" << endl;
+		cout << "Ошибка при открытии, возможно такой файл не найден." << endl;
 		exit(1);
 	}
 	else
 	{
 		cout << "OK\n";
 	}
-	//for (int i = 0; i < nst; i++)
-	//	if (stud[i].check == '0')
-	//		cout << stud[i].FIO << endl;
 }
 void Resf() // Вывод результата в текстовый файл
 {
@@ -230,7 +227,8 @@ void Resf() // Вывод результата в текстовый файл
 	if ((ft = fopen(namet, "w")) == NULL)
 	{
 		cout << "Ошибка при соЗдании" << endl;
-		exit(1);
+		system("pause");
+		Resf();
 	}
 	char s[80];
 	for (int i = 0; i < nst; i++)
