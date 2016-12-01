@@ -14,12 +14,14 @@ using namespace std;
 FILE *fl;
 typedef struct
 {
+	char id[3];
 	char FIO[25];
 	char year[10];
 	char month[3];
 	char day[3];
 	char stoimost[3];
 } TStudent;
+
 TStudent stud[30]; // Массив структур
 char name[20]; // Имя файла
 int nst = 0; // Число введенных структур
@@ -28,11 +30,10 @@ void Newf(); // Создание нового файла
 void Spisok(); // Формирование файла
 void OutSpisok(); // Открытие файла
 void SelectionFile(); // Вывод результата на экран
+
 void Zadanie();
 void IZadanie1();
 void IZadanie2();
-string Month();
-
 void beginMenu();
 string login;
 string password;
@@ -42,7 +43,7 @@ int main()
 	WCHAR Title[1024];
 	GetConsoleTitle(Title, 1024); // Узнаем имя окна
 	hwnd = FindWindow(NULL, Title); // Узнаем hwnd окна
-	MoveWindow(hwnd, 600, 50,850, 900, TRUE);//xnew,ynew,wnew,hnew -новые положение x,y, ширина и высота
+	MoveWindow(hwnd, 600, 50,850, 900, TRUE);//-новые положение x,y, ширина и высота
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "Russian");
