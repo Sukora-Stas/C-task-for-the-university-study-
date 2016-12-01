@@ -14,7 +14,7 @@ using namespace std;
 FILE *fl;
 typedef struct
 {
-	char id[3];
+	int id;
 	char FIO[25];
 	char year[10];
 	char month[3];
@@ -35,8 +35,6 @@ void Zadanie();
 void IZadanie1();
 void IZadanie2();
 void beginMenu();
-string login;
-string password;
 int main()
 {
 	HWND hwnd;
@@ -51,12 +49,12 @@ int main()
 	do
 	{
 		if (Authorization()){
-			cout << "\nOK!\n";
+			printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Password accepted, Welcome!", '|', '\n');
 			system("pause");
 			system("cls");
 			break;
 		}
-		cout << "\nError! Return please!\n";
+		printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Error! Return please!", '|', '\n');
 		system("pause");
 		system("cls");
 		beginMenu();
@@ -75,7 +73,7 @@ int main()
 		case 7: Zadanie(); break;
 		case 8: return 0;
 		default: 
-			cout<<"Выберите правильно!\n";
+			printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Выбирете правильно", '|', '\n');
 			system("pause");
 			system("cls");
 			Menu();
@@ -89,14 +87,14 @@ void beginMenu()
 {
 	printf("%-1c%-25s%-15s%-8s%-30i%-1c%-1c", '|', "", "Сукора С.И.", "Группа", 680961, '|','\n');
 	printf("%-1c%-15s%-8s%-18s%-1c%-1c", '|', "", "Программа расчёта выплат по больничным листам","", '|', '\n');
-	//cout << "\n\nПрограмма расчёта выплат по больничным листам" << endl;
-	cout << "|------------------------------------------------------------------------------|\n" << endl;
+	cout << "|______________________________________________________________________________|\n" << endl;
 }
 
 int Menu() // Меню
 {
 	beginMenu();
-	cout << "Меню:\n" << endl;
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "Меню:", "", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "", "", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "1.", "Созданеи нового файла", '|','\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "2.", "Заполнение БД", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "3.", "Показать БД больничных листов", '|', '\n');
@@ -105,17 +103,20 @@ int Menu() // Меню
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "6.", "Индивидуальное задание 2", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "7.", "Задание", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "8.", "Выход", '|', '\n');
-	cout << "\nВаш выбор: \n" << endl;
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "", "", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "", "Ваш выбор:", '|', '\n');
 	int i;
+	cout << "                    ";
 	cin >> i; // Ввод выбранного пункта меню
 	return i;
 }
 
 void Spisok() // Ввод данных в файла
 {
+	int id = 1;
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Ошибка при создании" << endl;
+		printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка при создание", '|', '\n');
 		system("pause");
 		system("cls");
 		Menu();
@@ -124,6 +125,10 @@ void Spisok() // Ввод данных в файла
 	cin >> nst;
 	for (int i = 0; i<nst; i++)
 	{
+		cout << "Сотрудник № " << id << " из " << nst << endl;
+		cout << " "<<endl;
+		stud[i].id = id;
+		id++;
 		cout << "Введите Фамилию ";
 		cin >> stud[i].FIO;
 		cout << "Введите год: ";
@@ -147,7 +152,7 @@ void Newf() // Создание нового файла
 	cin >> name;
 	if ((fl = fopen(name, "wb")) == NULL)
 	{
-		cout << "Ошибка при создании" << endl;
+		printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка при создание", '|', '\n');
 		system("pause");
 		system("cls");
 		Menu();
@@ -161,7 +166,7 @@ void OutSpisok() // Вывод списка сотрудников
 	int sum = 0;
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Ошибка при открытие" << endl;
+		printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка при открытие", '|', '\n');
 		system("pause");
 		system("cls");
 		Menu();
@@ -169,10 +174,11 @@ void OutSpisok() // Вывод списка сотрудников
 	nst = 0;
 	TStudent std;
 	cout << "\n|-----------------------------------------------------------------|\n" << endl;
-	printf("%-3c%-25s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '\n');
-	printf("%-3c%-25s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "сотрудника", "", "", "дней", "за день", '|', '\n');
+	printf("%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%-1c", '|',"Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '\n');
+	printf("%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%-1c", '|',"", "сотрудника", "", "", "дней", "за день", '|', '\n');
 	cout << "|-----------------------------------------------------------------|\n" << endl;
-	
+
+
 	while (true)
 	{
 		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
@@ -195,9 +201,10 @@ void OutSpisok() // Вывод списка сотрудников
 		case 10: month2 = "Октябрб"; break;
 		case 11: month2 = "Ноябрь"; break;
 		case 12: month2 = "Декабрь"; break;
-		default: cout << "Выберите правильно!\n";
+		default: cout << "Ошибка!\n";
 		}
-		printf("%-3c%-25s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
+		printf("%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
+			stud[nst].id,
 			stud[nst].FIO,
 			stud[nst].year,
 				month2.c_str(),
@@ -222,7 +229,7 @@ void SelectionFile() // Выбор файла
 	cin >> name;
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Ошибка при открытии, возможно такой файл не найден." << endl;
+		printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка при открытии, возможно такой файл не найден.", '|', '\n');
 		system("pause");
 		system("cls");
 		Menu();
@@ -256,9 +263,9 @@ void IZadanie1() // Вывод результата в текстовый файл
 {
 	int x = 0;
 	int y = 0;
-	cout << "Задание\n ";
-	cout << "для месяца Х года У вывести список сотрудников\n ";
-	cout << "с указанием выплат по больничным листам для каждого из них\n";
+	printf("%-1c%-1c%-10s%-68s%-1c%-1c", '\n', '|', "", "Задание:", '|', '\n');
+	printf("%-1c%-5s%-73s%-1c%-1c", '|', "", "Для месяца Х года У вывести список сотрудников", '|', '\n');
+	printf("%-1c%-5s%-73s%-1c%-1c", '|', "", "с указанием выплат по больничным листам для каждого из них", '|', '\n');
 
 	cout << "Введите Месяц:";
 	cout << "x = ";
@@ -271,7 +278,7 @@ void IZadanie1() // Вывод результата в текстовый файл
 	int all_sum = 0;
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Ошибка при открытие" << endl;
+		printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка при открытие", '|', '\n');
 		system("pause");
 		system("cls");
 		Menu();
@@ -306,7 +313,7 @@ void IZadanie1() // Вывод результата в текстовый файл
 		case 10: month2 = "Октябрб"; break;
 		case 11: month2 = "Ноябрь"; break;
 		case 12: month2 = "Декабрь"; break;
-		default: cout << "Выберите правильно!\n";
+		default: printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка", '|', '\n');
 		}
 		if (month == x&&year == y){
 			sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
@@ -336,11 +343,11 @@ void IZadanie2()
 {
 	int x = 0;
 
-	cout << "Задание\n ";
-	cout << "Вывести общую сумму выплат по больничнм листам\n ";
-	cout << " за интересующий месяц.\n";
+	printf("%-1c%-1c%-10s%-68s%-1c%-1c", '\n', '|', "", "Задание:", '|', '\n');
+	printf("%-1c%-5s%-73s%-1c%-1c", '|', "", "Вывести общую сумму выплат по больничнм листам", '|', '\n');
+	printf("%-1c%-5s%-73s%-1c%-1c", '|', "", "за интересующий месяц", '|', '\n');
 
-	cout << "Введите Месяц:";
+	cout << "\nВведите Месяц:";
 	cout << "x = ";
 	cin >> x;
 
@@ -348,7 +355,7 @@ void IZadanie2()
 	int all_sum = 0;
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
-		cout << "Ошибка при открытие" << endl;
+		printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка при открытие", '|', '\n');
 		system("pause");
 		system("cls");
 		Menu();
@@ -364,10 +371,7 @@ void IZadanie2()
 		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
 		if (nwrt != 1) break;
 		stud[nst] = std;
-
 		int month = atoi(stud[nst].month);
-		int year = atoi(stud[nst].year);
-
 		string month2;
 		switch (month)
 		{
@@ -383,7 +387,7 @@ void IZadanie2()
 		case 10: month2 = "Октябрб"; break;
 		case 11: month2 = "Ноябрь";  break;
 		case 12: month2 = "Декабрь"; break;
-		default: cout << "Выберите правильно!\n";
+		default: printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка", '|', '\n');
 		}
 		if (month == x){
 			sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
