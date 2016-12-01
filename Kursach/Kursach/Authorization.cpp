@@ -4,7 +4,9 @@ bool Authorization()
 {
 	string login;
 	string password;
-	cout << "јвторизаци€!\n¬ведите ваш логин и пароль\n\n";
+	printf("%-1c%-35s%-8s%-32s%-1c%-1c", '|', "", "јвторизаци€", "", '|', '\n');
+	printf("%-1c%-25s%-8s%-27s%-1c%-1c", '|', "", "¬ведите ваш логин и пароль", "", '|', '\n');
+	//cout << "јвторизаци€!\n¬ведите ваш логин и пароль\n\n";
 	printf("%15s", "Login: ");
 	getline(cin, login);
 	printf("%15s", "Password: ");
