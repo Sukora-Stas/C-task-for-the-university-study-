@@ -30,7 +30,7 @@ typedef struct
 {
 	char FIO[25];
 	char year[10];
-	char month[2];
+	char month[3];
 	char day[3];
 	char stoimost[3];
 } TStudent;
@@ -84,8 +84,9 @@ int main()
 		case 3: OutSpisok(); break;
 		case 4: SelectionFile(); break;
 		case 5: IZadanie1(); break;
-		case 6: Zadanie(); break;
-		case 7: return 0;
+		case 6: IZadanie2(); break;
+		case 7: Zadanie(); break;
+		case 8: return 0;
 		default: 
 			cout<<"Выберите правильно!\n";
 			system("pause");
@@ -99,7 +100,7 @@ int main()
 
 void beginMenu()
 {
-	printf("%-15s%-8s%-7i", "Сукора С.И.", "Группа", 680961);
+	printf("%-25s%-15s%-8s%-7i","", "Сукора С.И.", "Группа", 680961);
 	cout << "\n\nПрограмма расчёта выплат по больничным листам" << endl;
 	cout << "-------------------------------------------------\n" << endl;
 }
@@ -113,8 +114,9 @@ int Menu() // Меню
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "3.", "Показать БД больничных листов", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "4.", "Открыть файл", '|', '\n');
 	printf("%-3c%-7s%-35s%-1c%-1c", '|', "5.", "Индивидуальное задание 1", '|', '\n');
-	printf("%-3c%-7s%-35s%-1c%-1c", '|', "6.", "Задание", '|', '\n');
-	printf("%-3c%-7s%-35s%-1c%-1c", '|', "7.", "Выход", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "6.", "Индивидуальное задание 2", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "7.", "Задание", '|', '\n');
+	printf("%-3c%-7s%-35s%-1c%-1c", '|', "8.", "Выход", '|', '\n');
 	cout << "Ваш выбор: " << endl;
 	int i;
 	cin >> i; // Ввод выбранного пункта меню
@@ -188,20 +190,23 @@ void OutSpisok() // Вывод списка сотрудников
 		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
 		if (nwrt != 1) break;
 		stud[nst] = std;
-		char month = *stud[nst].month;
+		int month = atoi(stud[nst].month);
 		sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
 		string month2;
 		switch (month)
 		{
-		case '1': month2 = "Январь"; break;
-		case '2':month2 = "Февраль"; break;
-		case '3': month2 = "Март"; break;
-		case '4': month2 = "Апрель"; break;
-		case '5':month2 = "Май"; break;
-		case '6': month2 = "Июнь"; break;
-		case '7': month2 = "Июль"; break;
-		case '8':month2 = "Август"; break;
-		case '9': month2 = "Сентябрь"; break;		
+		case 1: month2 = "Январь"; break;
+		case 2:month2 = "Февраль"; break;
+		case 3: month2 = "Март"; break;
+		case 4: month2 = "Апрель"; break;
+		case 5:month2 = "Май"; break;
+		case 6: month2 = "Июнь"; break;
+		case 7: month2 = "Июль"; break;
+		case 8:month2 = "Август"; break;
+		case 9: month2 = "Сентябрь"; break;
+		case 10: month2 = "Октябрб"; break;
+		case 11: month2 = "Ноябрь"; break;
+		case 12: month2 = "Декабрь"; break;
 		default: cout << "Выберите правильно!\n";
 		}
 		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-1c%-1c", '|',
@@ -248,9 +253,20 @@ void Zadanie()
 
 void IZadanie1() // Вывод результата в текстовый файл
 {
+	int x = 0;
+	int y = 0;
 	cout << "Задание\n ";
 	cout << "для месяца Х года У вывести список сотрудников\n ";
 	cout << "с указанием выплат по больничным листам для каждого из них\n";
+	cout << "Введите Месяц:";
+	cout << "x = ";
+	cin >> x;
+	cout << "Введите Год:";
+	cout << "y = ";
+	cin >> y;
+
+
+
 	int sum = 0;
 	int all_sum = 0;
 	if ((fl = fopen(name, "rb+")) == NULL)
@@ -275,7 +291,9 @@ void IZadanie1() // Вывод результата в текстовый файл
 		if (nwrt != 1) break;
 		stud[nst] = std;
 
-		char month = atoi(stud[nst].month);
+		int month = atoi(stud[nst].month);
+		int year = atoi(stud[nst].year);
+
 		string month2;
 		switch (month)
 		{
@@ -288,25 +306,35 @@ void IZadanie1() // Вывод результата в текстовый файл
 		case 7: month2 = "Июль"; break;
 		case 8:month2 = "Август"; break;
 		case 9: month2 = "Сентябрь"; break;
+		case 10: month2 = "Октябрб"; break;
+		case 11: month2 = "Ноябрь"; break;
+		case 12: month2 = "Декабрь"; break;
 		default: cout << "Выберите правильно!\n";
 		}
-		sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
-		all_sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
-		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-10i%-1c%-1c", '|',
-			stud[nst].FIO,
-			stud[nst].year,
-			month2.c_str(),
-			stud[nst].day,
-			stud[nst].stoimost,
+		
+		if (month == x&&year == y){
+			sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
+			all_sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
+			printf("%-3c%-25s%-10s%-10s%-6s%-15s%-10i%-1c%-1c", '|',
+				stud[nst].FIO,
+				stud[nst].year,
+				month2.c_str(),
+				stud[nst].day,
+				stud[nst].stoimost,
 				sum,
-			'|',
-			'\n');
-		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-10s%-1c%-1c", '|', "", "", "", "", "","", '|', '\n');
-		sum = 0;
-		nst++;
+				'|',
+				'\n');
+			printf("%-3c%-25s%-10s%-10s%-6s%-15s%-10s%-1c%-1c", '|', "", "", "", "", "", "", '|', '\n');
+			sum = 0;
+			nst++;
+		}
 	}
 	cout << "|------------------------------------------------------------------------------|\n" << endl;
 		printf("%-3c%-25s%-10s%-10s%-6s%-15s%-10i%-1c%-1c", '|', "", "", "","", "Сумма:", all_sum, '|', '\n');
 	cout << "|------------------------------------------------------------------------------|\n" << endl;
 	fclose(fl);
+}
+void IZadanie2()
+{
+	
 }
