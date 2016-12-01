@@ -49,7 +49,7 @@ int main()
 	do
 	{
 		if (Authorization()){
-			printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Password accepted, Welcome!", '|', '\n');
+			printf("%-1c%-1c%-4s%-74s%-1c%-1c", '\n', '|', "", "Password accepted, Welcome!", '|', '\n');
 			system("pause");
 			system("cls");
 			break;
