@@ -409,8 +409,8 @@ void IZadanie2()
 void poisk()
 {
 	string value;
-	cout << "|------------------------------------------------------------------------|\n" << endl;
-	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Поиск по каким критериям вы хотите организовать поиск?", '|');
+	cout << "|______________________________________________________________________________|\n" << endl;
+	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Поиск по каким критериям вы хотите организовать?", '|');
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "1.", "По id", '|');
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "2.", "По Фамилии", '|');
@@ -420,7 +420,7 @@ void poisk()
 	int i;
 	cin >> i;
 
-	if (i == 1)
+	if (i == 1)  //по ID
 	{
 		int number = 0;
 		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Поиск по id", '|');
@@ -461,6 +461,70 @@ void poisk()
 			default: cout << "Ошибка!\n";
 			}
 			if (number==id){
+				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
+				printf("%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
+					stud[nst].id,
+					stud[nst].FIO,
+					stud[nst].year,
+					month2.c_str(),
+					stud[nst].day,
+					stud[nst].stoimost,
+					"руб.",
+					'|',
+					'\n');
+				printf("%-3c%-25s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "", "", "", "", "", '|', '\n');
+
+				nst++;
+			}
+		}
+		cout << "|-----------------------------------------------------------------|\n" << endl;
+		printf("%-3c%-25s%-10s%-10s%-6s%-4i%-8s%-1c%-1c", '|', "", "", "", "Сумма:", sum, "руб.", '|', '\n');
+		cout << "|-----------------------------------------------------------------|\n" << endl;
+		fclose(fl);
+
+
+	}
+	if (i == 2)    //По Фамилии
+	{
+		string name;
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Поиск по фамилии", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c%-1c", '\n', '|', "", "Введите фамилию", '|', '\n');
+		cin >> name;
+		//getline(cin, name);
+		int sum = 0;
+		proverka();
+		nst = 0;
+		TStudent std;
+		cout << "\n|-----------------------------------------------------------------|\n" << endl;
+		printf("%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '\n');
+		printf("%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "", "сотрудника", "", "", "дней", "за день", '|', '\n');
+		cout << "|-----------------------------------------------------------------|\n" << endl;
+
+		while (true)
+		{
+			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			if (nwrt != 1) break;
+			stud[nst] = std;
+			int month = atoi(stud[nst].month);
+			string fio = stud[nst].FIO;
+			string month2;
+			switch (month)
+			{
+			case 1: month2 = "Январь"; break;
+			case 2:month2 = "Февраль"; break;
+			case 3: month2 = "Март"; break;
+			case 4: month2 = "Апрель"; break;
+			case 5:month2 = "Май"; break;
+			case 6: month2 = "Июнь"; break;
+			case 7: month2 = "Июль"; break;
+			case 8:month2 = "Август"; break;
+			case 9: month2 = "Сентябрь"; break;
+			case 10: month2 = "Октябрб"; break;
+			case 11: month2 = "Ноябрь"; break;
+			case 12: month2 = "Декабрь"; break;
+			default: cout << "Ошибка!\n";
+			}
+			if (name == fio){
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
 				printf("%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
 					stud[nst].id,
