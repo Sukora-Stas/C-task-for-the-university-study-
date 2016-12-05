@@ -8,6 +8,7 @@
 #include <istream>
 #include <Windows.h>
 #include "Authorization.h"
+//#include "poiskk.h"
 
 using namespace std;
 
@@ -38,6 +39,9 @@ void IZadanie2();
 void proverka();
 void poisk();
 void sort();
+
+void bubbleSortDescending(int *, int);
+void bubbleSortScending(int *, int);
 
 string _switch(int month);
 
@@ -362,7 +366,6 @@ void IZadanie2()
 
 void poisk()
 {
-	string value;
 	cout << "|______________________________________________________________________________|\n" << endl;
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Поиск по каким критериям вы хотите организовать?", '|');
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
@@ -554,7 +557,94 @@ void poisk()
 
 void sort()
 {
-	
+	int n = 0;
+	proverka();
+	nst = 0;
+	TStudent std;
+	int *arr = new int[n];
+	while (true)
+	{
+		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+		if (nwrt != 1) break;
+		stud[nst] = std;
+		arr[nst] = stud[nst].id;
+			nst++;
+			n++;
+	}
+	cout << "|______________________________________________________________________________|\n" << endl;
+	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Поиск по каким критериям вы хотите организовать?", '|');
+	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
+	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "1.", "По id", '|');
+	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "2.", "По году", '|');
+	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "3.", "По месяцу", '|');
+	printf("%-1c%-1c%-4s%-74s%-1c%-1c", '\n', '|', "", "", '|', '\n');
+	int i;
+	cin >> i;
+	if (i == 1)
+	{
+		cout << "|______________________________________________________________________________|\n" << endl;
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Выберити: по возрастанию или по убыванию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "1.", "По возрастанию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "2.", "По убыванию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c%-1c", '\n', '|', "", "", '|', '\n');
+		int j;
+		cin >> j;
+		if (j == 1)
+		{
+			bubbleSortScending(arr, n);
+			for (int i = 0; i < n; ++i)
+			{
+				cout << arr[i] << " ";
+			}
+		}
+		if (j == 2)
+		{
+			bubbleSortDescending(arr, n);
+			for (int i = 0; i < n; ++i)
+			{
+				cout << arr[i] << " ";
+			}
+		}
+	}
+	if (i == 2)
+	{
+		cout << "|______________________________________________________________________________|\n" << endl;
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Выберити: по возрастанию или по убыванию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "1.", "По возрастанию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "2.", "По убыванию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c%-1c", '\n', '|', "", "", '|', '\n');
+		int j;
+		cin >> j;
+		if (j == 1)
+		{
+
+		}
+		if (j == 2)
+		{
+
+		}
+	}
+	if (i == 3)
+	{
+		cout << "|______________________________________________________________________________|\n" << endl;
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Выберити: по возрастанию или по убыванию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "1.", "По возрастанию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "2.", "По убыванию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c%-1c", '\n', '|', "", "", '|', '\n');
+		int j;
+		cin >> j;
+		if (j == 1)
+		{
+
+		}
+		if (j == 2)
+		{
+
+		}
+	}
 }
 
 string _switch(int month)
@@ -577,4 +667,34 @@ string _switch(int month)
 	default: printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка", '|', '\n');
 	}
 	return month2;
+}
+void bubbleSortDescending(int *arr, int n)
+{
+	for (int i = 1; i < n; ++i)
+	{
+		for (int r = 0; r < n - i; r++)
+		{
+			if (arr[r] < arr[r + 1])
+			{
+				int temp = arr[r];
+				arr[r] = arr[r + 1];
+				arr[r + 1] = temp;
+			}
+		}
+	}
+}
+void bubbleSortScending(int *arr, int n)
+{
+	for (int i = 1; i < n; ++i)
+	{
+		for (int r = 0; r < n - i; r++)
+		{
+			if (arr[r] > arr[r + 1])
+			{
+				int temp = arr[r];
+				arr[r] = arr[r + 1];
+				arr[r + 1] = temp;
+			}
+		}
+	}
 }
