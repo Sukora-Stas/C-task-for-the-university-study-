@@ -39,6 +39,8 @@ void proverka();
 void poisk();
 void sort();
 
+string _switch(int month);
+
 void beginMenu();
 int main()
 {
@@ -193,23 +195,7 @@ void OutSpisok() // Вывод списка сотрудников
 		stud[nst] = std;
 		int month = atoi(stud[nst].month);
 		sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
-		string month2;
-		switch (month)
-		{
-		case 1: month2 = "Январь"; break;
-		case 2:month2 = "Февраль"; break;
-		case 3: month2 = "Март"; break;
-		case 4: month2 = "Апрель"; break;
-		case 5:month2 = "Май"; break;
-		case 6: month2 = "Июнь"; break;
-		case 7: month2 = "Июль"; break;
-		case 8:month2 = "Август"; break;
-		case 9: month2 = "Сентябрь"; break;
-		case 10: month2 = "Октябрб"; break;
-		case 11: month2 = "Ноябрь"; break;
-		case 12: month2 = "Декабрь"; break;
-		default: cout << "Ошибка!\n";
-		}
+		string month2 = _switch(month);
 		printf("%-7s%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c","", '|',
 			stud[nst].id,
 			stud[nst].FIO,
@@ -299,23 +285,7 @@ void IZadanie1() // Вывод результата в текстовый файл
 		int month = atoi(stud[nst].month);
 		int year = atoi(stud[nst].year);
 
-		string month2;
-		switch (month)
-		{
-		case 1: month2 = "Январь"; break;
-		case 2:month2 = "Февраль"; break;
-		case 3: month2 = "Март"; break;
-		case 4: month2 = "Апрель"; break;
-		case 5:month2 = "Май"; break;
-		case 6: month2 = "Июнь"; break;
-		case 7: month2 = "Июль"; break;
-		case 8:month2 = "Август"; break;
-		case 9: month2 = "Сентябрь"; break;
-		case 10: month2 = "Октябрб"; break;
-		case 11: month2 = "Ноябрь"; break;
-		case 12: month2 = "Декабрь"; break;
-		default: printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка", '|', '\n');
-		}
+		string month2 = _switch(month);
 		if (month == x&&year == y){
 			sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
 			all_sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
@@ -366,23 +336,7 @@ void IZadanie2()
 		if (nwrt != 1) break;
 		stud[nst] = std;
 		int month = atoi(stud[nst].month);
-		string month2;
-		switch (month)
-		{
-		case 1:  month2 = "Январь";  break;
-		case 2:  month2 = "Февраль"; break;
-		case 3:  month2 = "Март";    break;
-		case 4:  month2 = "Апрель";  break;
-		case 5:  month2 = "Май";     break;
-		case 6:  month2 = "Июнь";    break;
-		case 7:  month2 = "Июль";    break;
-		case 8:  month2 = "Август";  break;
-		case 9:  month2 = "Сентябрь";break;
-		case 10: month2 = "Октябрб"; break;
-		case 11: month2 = "Ноябрь";  break;
-		case 12: month2 = "Декабрь"; break;
-		default: printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка", '|', '\n');
-		}
+		string month2 = _switch(month);
 		if (month == x){
 			sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
 			all_sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
@@ -442,23 +396,7 @@ void poisk()
 			int month = atoi(stud[nst].month);
 			int id = stud[nst].id;
 			
-			string month2;
-			switch (month)
-			{
-			case 1: month2 = "Январь"; break;
-			case 2:month2 = "Февраль"; break;
-			case 3: month2 = "Март"; break;
-			case 4: month2 = "Апрель"; break;
-			case 5:month2 = "Май"; break;
-			case 6: month2 = "Июнь"; break;
-			case 7: month2 = "Июль"; break;
-			case 8:month2 = "Август"; break;
-			case 9: month2 = "Сентябрь"; break;
-			case 10: month2 = "Октябрб"; break;
-			case 11: month2 = "Ноябрь"; break;
-			case 12: month2 = "Декабрь"; break;
-			default: cout << "Ошибка!\n";
-			}
+			string month2 = _switch(month);
 			if (number==id){
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
 				printf("%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
@@ -502,23 +440,7 @@ void poisk()
 			stud[nst] = std;
 			int month = atoi(stud[nst].month);
 			string fio = stud[nst].FIO;
-			string month2;
-			switch (month)
-			{
-			case 1: month2 = "Январь"; break;
-			case 2:month2 = "Февраль"; break;
-			case 3: month2 = "Март"; break;
-			case 4: month2 = "Апрель"; break;
-			case 5:month2 = "Май"; break;
-			case 6: month2 = "Июнь"; break;
-			case 7: month2 = "Июль"; break;
-			case 8:month2 = "Август"; break;
-			case 9: month2 = "Сентябрь"; break;
-			case 10: month2 = "Октябрб"; break;
-			case 11: month2 = "Ноябрь"; break;
-			case 12: month2 = "Декабрь"; break;
-			default: cout << "Ошибка!\n";
-			}
+			string month2 = _switch(month);
 			if (name == fio){
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
 				printf("%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
@@ -563,23 +485,7 @@ void poisk()
 			int month = atoi(stud[nst].month);
 			int yea = atoi(stud[nst].year);
 
-			string month2;
-			switch (month)
-			{
-			case 1: month2 = "Январь"; break;
-			case 2:month2 = "Февраль"; break;
-			case 3: month2 = "Март"; break;
-			case 4: month2 = "Апрель"; break;
-			case 5:month2 = "Май"; break;
-			case 6: month2 = "Июнь"; break;
-			case 7: month2 = "Июль"; break;
-			case 8:month2 = "Август"; break;
-			case 9: month2 = "Сентябрь"; break;
-			case 10: month2 = "Октябрб"; break;
-			case 11: month2 = "Ноябрь"; break;
-			case 12: month2 = "Декабрь"; break;
-			default: cout << "Ошибка!\n";
-			}
+			string month2 = _switch(month);
 			if (year == yea){
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
 				printf("%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
@@ -622,23 +528,7 @@ void poisk()
 			if (nwrt != 1) break;
 			stud[nst] = std;
 			int month = atoi(stud[nst].month);
-			string month2;
-			switch (month)
-			{
-			case 1: month2 = "Январь"; break;
-			case 2:month2 = "Февраль"; break;
-			case 3: month2 = "Март"; break;
-			case 4: month2 = "Апрель"; break;
-			case 5:month2 = "Май"; break;
-			case 6: month2 = "Июнь"; break;
-			case 7: month2 = "Июль"; break;
-			case 8:month2 = "Август"; break;
-			case 9: month2 = "Сентябрь"; break;
-			case 10: month2 = "Октябрб"; break;
-			case 11: month2 = "Ноябрь"; break;
-			case 12: month2 = "Декабрь"; break;
-			default: cout << "Ошибка!\n";
-			}
+			string month2 = _switch(month);
 			if (monthe == month){
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
 				printf("%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
@@ -661,7 +551,30 @@ void poisk()
 		fclose(fl);
 	}
 }
+
 void sort()
 {
 	
+}
+
+string _switch(int month)
+{
+	string month2;
+	switch (month)
+	{
+	case 1:  month2 = "Январь";  break;
+	case 2:  month2 = "Февраль"; break;
+	case 3:  month2 = "Март";    break;
+	case 4:  month2 = "Апрель";  break;
+	case 5:  month2 = "Май";     break;
+	case 6:  month2 = "Июнь";    break;
+	case 7:  month2 = "Июль";    break;
+	case 8:  month2 = "Август";  break;
+	case 9:  month2 = "Сентябрь"; break;
+	case 10: month2 = "Октябрб"; break;
+	case 11: month2 = "Ноябрь";  break;
+	case 12: month2 = "Декабрь"; break;
+	default: printf("%-1c%-1c%-5s%-73s%-1c%-1c", '\n', '|', "", "Ошибка", '|', '\n');
+	}
+	return month2;
 }
