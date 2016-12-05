@@ -545,10 +545,10 @@ void poisk()
 	}
 	if (i == 3)  //по году
 	{
-		int number = 0;
-		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Поиск по id", '|');
-		printf("%-1c%-1c%-4s%-74s%-1c%-1c", '\n', '|', "", "Введите номер", '|', '\n');
-		cin >> number;
+		int year = 0;
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Поиск по году", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c%-1c", '\n', '|', "", "Введите год", '|', '\n');
+		cin >> year;
 		int sum = 0;
 		proverka();
 		nst = 0;
@@ -563,7 +563,7 @@ void poisk()
 			if (nwrt != 1) break;
 			stud[nst] = std;
 			int month = atoi(stud[nst].month);
-			int id = stud[nst].id;
+			int yea = atoi(stud[nst].year);
 
 			string month2;
 			switch (month)
@@ -582,7 +582,7 @@ void poisk()
 			case 12: month2 = "Декабрь"; break;
 			default: cout << "Ошибка!\n";
 			}
-			if (number == id){
+			if (year == yea){
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
 				printf("%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
 					stud[nst].id,
