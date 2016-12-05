@@ -39,8 +39,6 @@ void proverka();
 void poisk();
 void sort();
 
-string _switch(int month, string month2);
-
 void beginMenu();
 int main()
 {
