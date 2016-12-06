@@ -558,21 +558,11 @@ void poisk()
 void sort()
 {
 	int sum = 0;
-	int n = 0;
+	
 	proverka();
 	int m = 0;
 	nst = 0;
 	TStudent std;
-	int *arr = new int[n];
-	while (true)
-	{
-		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
-		if (nwrt != 1) break;
-		stud[nst] = std;
-		arr[nst] = stud[nst].id;
-			nst++;
-			n++;
-	}
 	cout << "|______________________________________________________________________________|\n" << endl;
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Поиск по каким критериям вы хотите организовать?", '|');
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
@@ -584,6 +574,17 @@ void sort()
 	cin >> i;
 	if (i == 1)
 	{
+		int n = 0;
+		int *arr = new int[n];
+		while (true)
+		{
+			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			if (nwrt != 1) break;
+			stud[nst] = std;
+			arr[nst] = stud[nst].id;
+			nst++;
+			n++;
+		}
 		cout << "|______________________________________________________________________________|\n" << endl;
 		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Выберити: по возрастанию или по убыванию", '|');
 		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
@@ -641,7 +642,6 @@ void sort()
 		}
 		if (j == 2)
 		{
-			//TStudent std;
 			bubbleSortDescending(arr, n);
 			proverka();
 			
@@ -688,6 +688,17 @@ void sort()
 	}
 	if (i == 2)
 	{
+		int n = 0;
+		int *arr = new int[n];
+		while (true)
+		{
+			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			if (nwrt != 1) break;
+			stud[nst] = std;
+			arr[nst] = atoi(stud[nst].year);
+			nst++;
+			n++;
+		}
 		cout << "|______________________________________________________________________________|\n" << endl;
 		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Выберити: по возрастанию или по убыванию", '|');
 		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
@@ -699,14 +710,71 @@ void sort()
 		if (j == 1)
 		{
 
+
+
+
+
 		}
 		if (j == 2)
 		{
+			bubbleSortDescending(arr, n);
+			proverka();
+			
+			cout << "\n|-----------------------------------------------------------------|\n" << endl;
+			printf("%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '\n');
+			printf("%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "", "сотрудника", "", "", "дней", "за день", '|', '\n');
+			cout << "|-----------------------------------------------------------------|\n" << endl;
+			nst = 0;
+			stud[nst] = std;
+			for (int x = 0; x < n; x++)
+			{
+				nst = 0;
+				for (int z = 0; z < n; z++)
+				{
+					int month = atoi(stud[nst].month);
+					int id = atoi(stud[nst].year);
+					string month2 = _switch(month);
+					if (arr[m] == id){
+						sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
+						printf("%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
+							stud[nst].id,
+							stud[nst].FIO,
+							stud[nst].year,
+							month2.c_str(),
+							stud[nst].day,
+							stud[nst].stoimost,
+							"руб.",
+							'|',
+							'\n');
+						printf("%-3c%-25s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "", "", "", "", "", '|', '\n');
+						fclose(fl);
 
+						break;
+					}
+					nst++;
+				}
+				cout << arr[m] << " " << endl;
+				m++;
+			}
+			cout << "|-----------------------------------------------------------------|\n" << endl;
+			printf("%-3c%-25s%-10s%-10s%-6s%-4i%-8s%-1c%-1c", '|', "", "", "", "Сумма:", sum, "руб.", '|', '\n');
+			cout << "|-----------------------------------------------------------------|\n" << endl;
+			fclose(fl);
 		}
 	}
 	if (i == 3)
 	{
+		int n = 0;
+		int *arr = new int[n];
+		while (true)
+		{
+			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			if (nwrt != 1) break;
+			stud[nst] = std;
+			arr[nst] = stud[nst].id;
+			nst++;
+			n++;
+		}
 		cout << "|______________________________________________________________________________|\n" << endl;
 		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Выберити: по возрастанию или по убыванию", '|');
 		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
