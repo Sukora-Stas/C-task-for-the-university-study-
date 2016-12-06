@@ -641,28 +641,24 @@ void sort()
 		}
 		if (j == 2)
 		{
+			//TStudent std;
 			bubbleSortDescending(arr, n);
 			proverka();
-			nst = 0;
+			
 			cout << "\n|-----------------------------------------------------------------|\n" << endl;
 			printf("%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '\n');
 			printf("%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "", "сотрудника", "", "", "дней", "за день", '|', '\n');
 			cout << "|-----------------------------------------------------------------|\n" << endl;
-
-			/*while (true)
-			{*/
+			nst = 0;
+			stud[nst] = std;
 				for (int x = 0; x < n; x++)
 				{
-					int nwrt = fread(&std, sizeof(TStudent), 1, fl);
-					if (nwrt != 1) break;
-					stud[nst] = std;
+					nst = 0;
 					for (int z = 0; z < n; z++)
 					{
 						int month = atoi(stud[nst].month);
 						int id = stud[nst].id;
 						string month2 = _switch(month);
-						cout << "1arr[i] = " << arr[m] << endl;
-						cout << "1stud[nst].id = " << stud[nst].id << endl;
 						if (arr[m] == id){
 							sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
 							printf("%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
@@ -677,16 +673,13 @@ void sort()
 								'\n');
 							printf("%-3c%-25s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "", "", "", "", "", '|', '\n');
 							fclose(fl);
-							m++;
-						}
-						
+							
+							break;
+						}	
 						nst++;
-
 					}
-					//fclose(fl);
+					m++;
 				}
-			
-
 			cout << "|-----------------------------------------------------------------|\n" << endl;
 			printf("%-3c%-25s%-10s%-10s%-6s%-4i%-8s%-1c%-1c", '|', "", "", "", "Сумма:", sum, "руб.", '|', '\n');
 			cout << "|-----------------------------------------------------------------|\n" << endl;
