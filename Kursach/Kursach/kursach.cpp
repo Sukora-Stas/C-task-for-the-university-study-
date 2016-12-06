@@ -709,7 +709,50 @@ void sort()
 		cin >> j;
 		if (j == 1)
 		{
+			bubbleSortScending(arr, n);
+			proverka();
+			nst = 0;
+			cout << "\n|-----------------------------------------------------------------|\n" << endl;
+			printf("%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '\n');
+			printf("%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "", "сотрудника", "", "", "дней", "за день", '|', '\n');
+			cout << "|-----------------------------------------------------------------|\n" << endl;
 
+			while (true)
+			{
+				int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+				if (nwrt != 1) break;
+				stud[nst] = std;
+				for (int z = 0; z < n; z++)
+				{
+					int month = atoi(stud[nst].month);
+					int id = atoi(stud[nst].year);
+					string month2 = _switch(month);
+					if (arr[m] == id){
+						sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
+						printf("%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%-1c", '|',
+							stud[nst].id,
+							stud[nst].FIO,
+							stud[nst].year,
+							month2.c_str(),
+							stud[nst].day,
+							stud[nst].stoimost,
+							"руб.",
+							'|',
+							'\n');
+						printf("%-3c%-25s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "", "", "", "", "", '|', '\n');
+						//fclose(fl);
+						m++;
+					}
+					nst++;
+
+				}
+				fclose(fl);
+			}
+
+			cout << "|-----------------------------------------------------------------|\n" << endl;
+			printf("%-3c%-25s%-10s%-10s%-6s%-4i%-8s%-1c%-1c", '|', "", "", "", "Сумма:", sum, "руб.", '|', '\n');
+			cout << "|-----------------------------------------------------------------|\n" << endl;
+			fclose(fl);
 
 
 
@@ -748,12 +791,11 @@ void sort()
 							'\n');
 						printf("%-3c%-25s%-10s%-10s%-6s%-12s%-1c%-1c", '|', "", "", "", "", "", '|', '\n');
 						fclose(fl);
-
 						break;
 					}
 					nst++;
 				}
-				cout << arr[m] << " " << endl;
+				//cout << arr[m] << " " << endl;
 				m++;
 			}
 			cout << "|-----------------------------------------------------------------|\n" << endl;
