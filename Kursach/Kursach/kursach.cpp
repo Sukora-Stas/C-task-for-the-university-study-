@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
+//#pragma execution_character_set("utf-8")
 #include <iostream>
 #include <iomanip>
 #include <stdio.h>
@@ -22,6 +23,8 @@ typedef struct
 	char day[3];
 	char stoimost[3];
 } TStudent;
+
+
 
 TStudent stud[30]; // Массив структур
 char name[20]; // Имя файла
@@ -56,6 +59,8 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "Russian");
+	setlocale(LC_ALL, "ru_RU.UTF-8");
+	setlocale(LC_ALL, "");
 	beginMenu();
 	do
 	{
