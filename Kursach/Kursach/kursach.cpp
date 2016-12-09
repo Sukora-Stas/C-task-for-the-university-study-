@@ -1,5 +1,4 @@
 #define _CRT_SECURE_NO_WARNINGS
-//#pragma execution_character_set("utf-8")
 #include <iostream>
 #include <iomanip>
 #include <stdio.h>
@@ -9,7 +8,6 @@
 #include <istream>
 #include <Windows.h>
 #include "Authorization.h"
-//#include "poiskk.h"
 
 using namespace std;
 
@@ -23,8 +21,6 @@ typedef struct
 	char day[3];
 	char stoimost[3];
 } TStudent;
-
-
 
 TStudent stud[30]; // Массив структур
 char name[20]; // Имя файла
