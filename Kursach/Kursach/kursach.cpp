@@ -26,8 +26,6 @@ typedef struct
 	char stoimost[3];
 } TStudent;
 
-bool sortByFioUp(const TStudent&, const TStudent&); //прототип функции
-
 TStudent stud[30]; // Массив структур
 char name[20]; // Имя файла
 int nst = 0; // Число введенных структур
@@ -48,6 +46,10 @@ void MySort();
 void bubbleSortDescending(int *, int);
 void bubbleSortScending(int *, int);
 
+bool sortByFioUp(const TStudent&, const TStudent&); //прототип функции
+bool sortByFioUp(const TStudent&, const TStudent&); //прототип функции
+bool sortByFioDown(const TStudent&, const TStudent&); //прототип функции
+
 string _switch(int month);
 
 void beginMenu();
@@ -57,6 +59,10 @@ bool sortByFioUp(const TStudent& left, const TStudent& right)
 	return strcmp(left.FIO, right.FIO) < 0;
 }
 
+bool sortByFioDown(const TStudent& left, const TStudent& right)
+{
+	return strcmp(left.FIO, right.FIO) > 0;
+}
 
 int main()
 {
@@ -893,12 +899,28 @@ void MySort()
 					studentList[i].year,
 					month.c_str(), '\n');
 			}
-
-
 		}
 		if (j == 2)
 		{
-
+			fclose(fl);
+			vector <TStudent> studentList;
+			for (int i = 0; i < 30; i++)
+			{
+				if (stud[i].FIO[0] == '\0')
+					break;
+				studentList.insert(studentList.end(), stud[i]);
+			}
+			sort(studentList.begin(), studentList.end(), sortByFioDown);
+			for (int i = 0; i < studentList.size(); i++)
+			{
+				string month = _switch(atoi(studentList[i].month));
+				printf("%-8s%-3c%-20s%-2s%-1c%-2s%-1c%-14s%-20s%-1c", " ", '|',
+					studentList[i].FIO,
+					studentList[i].day, '-',
+					studentList[i].stoimost, '-',
+					studentList[i].year,
+					month.c_str(), '\n');
+			}
 		}
 	}
 }
