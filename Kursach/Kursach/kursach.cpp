@@ -67,6 +67,16 @@ bool sortByIdDown(const TStudent& left, const TStudent& right)
 	return left.id > right.id;
 }
 
+bool sortByYearUp(const TStudent& left, const TStudent& right)
+{
+	return strcmp(left.year, right.year) < 0;
+}
+
+bool sortByYearDown(const TStudent& left, const TStudent& right)
+{
+	return strcmp(left.year, right.year) > 0;
+}
+
 bool sortByFioUp(const TStudent& left, const TStudent& right)
 {
 	return strcmp(left.FIO, right.FIO) < 0;
@@ -644,7 +654,7 @@ void MySort()
 					break;
 				studentList.insert(studentList.end(), stud[i]);
 			}
-			sort(studentList.begin(), studentList.end(), sortByFioUp);
+			sort(studentList.begin(), studentList.end(), sortByIdUp);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
