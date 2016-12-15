@@ -7,6 +7,10 @@
 #include <string.h>
 #include <istream>
 #include <Windows.h>
+
+#include <algorithm>
+#include <vector>
+
 #include "Authorization.h"
 
 using namespace std;
@@ -21,6 +25,8 @@ typedef struct
 	char day[3];
 	char stoimost[3];
 } TStudent;
+
+bool sortByFioUp(const TStudent&, const TStudent&); //прототип функции
 
 TStudent stud[30]; // Массив структур
 char name[20]; // Имя файла
@@ -37,7 +43,7 @@ void IZadanie2();
 
 void proverka();
 void poisk();
-void sort();
+void MySort();
 
 void bubbleSortDescending(int *, int);
 void bubbleSortScending(int *, int);
@@ -45,6 +51,13 @@ void bubbleSortScending(int *, int);
 string _switch(int month);
 
 void beginMenu();
+
+bool sortByFioUp(const TStudent& left, const TStudent& right)
+{
+	return strcmp(left.FIO, right.FIO) < 0;
+}
+
+
 int main()
 {
 	HWND hwnd;
@@ -83,7 +96,7 @@ int main()
 		case 5: IZadanie1(); break;
 		case 6: IZadanie2(); break;
 		case 7: poisk(); break;
-		case 8: sort(); break;
+		case 8: MySort(); break;
 		case 9: Zadanie(); break;
 		case 10: return 0;
 		default:
@@ -563,7 +576,7 @@ void poisk()
 	}
 }
 
-void sort()
+void MySort()
 {
 	int sum = 0;
 
@@ -577,6 +590,7 @@ void sort()
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "1.", "По id", '|');
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "2.", "По году", '|');
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "3.", "По месяцу", '|');
+	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "4.", "По фамилии", '|');
 	printf("%-1c%-1c%-4s%-74s%-1c%-1c", '\n', '|', "", "", '|', '\n');
 	int i;
 	cin >> i;
@@ -834,6 +848,52 @@ void sort()
 		cin >> j;
 		if (j == 1)
 		{
+
+		}
+		if (j == 2)
+		{
+
+		}
+	}
+	if (i == 4)
+	{
+		while (true)
+		{
+			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			if (nwrt != 1) break;
+			stud[nst] = std;
+			nst++;
+		}
+		cout << "|______________________________________________________________________________|\n";
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Выберити: по возрастанию или по убыванию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "1.", "По возрастанию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "2.", "По убыванию", '|');
+		printf("%-1c%-1c%-4s%-74s%-1c%-1c", '\n', '|', "", "", '|', '\n');
+		int j;
+		cin >> j;
+		if (j == 1)
+		{
+			fclose(fl);
+			vector <TStudent> studentList;
+			for (int i = 0; i < 30; i++)
+			{
+				if (stud[i].FIO[0] == '\0')
+					break;
+				studentList.insert(studentList.end(), stud[i]);
+			}
+			sort(studentList.begin(), studentList.end(), sortByFioUp);
+			for (int i = 0; i < studentList.size(); i++)
+			{
+				string month = _switch(atoi(studentList[i].month));
+				printf("%-8s%-3c%-20s%-2s%-1c%-2s%-1c%-14s%-20s%-1c", " ", '|',
+					studentList[i].FIO,
+					studentList[i].day, '-',
+					studentList[i].stoimost, '-',
+					studentList[i].year,
+					month.c_str(), '\n');
+			}
+
 
 		}
 		if (j == 2)
