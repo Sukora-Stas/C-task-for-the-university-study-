@@ -712,7 +712,7 @@ void MySort()
 		if (j == 1)
 		{
 			int sum = 0;
-			fclose(fl);
+			//fclose(fl);
 			vector <TStudent> studentList;
 			for (int l = 0; l < 30; l++)
 			{
@@ -749,7 +749,7 @@ void MySort()
 		if (j == 2)
 		{
 			int sum = 0;
-			fclose(fl);
+			//fclose(fl);
 			vector <TStudent> studentList;
 			for (int a = 0; a < 30; a++)
 			{

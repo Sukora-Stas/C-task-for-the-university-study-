@@ -1,4 +1,4 @@
-﻿Сборка начата 15.12.2016 23:48:17.
+﻿Сборка начата 17.12.2016 20:20:31.
      1>Проект "C:\Users\stasi\Source\Repos\Cpp-task-for-the-university-study\Kursach\Kursach\Kursach.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt kursach.cpp
@@ -19,4 +19,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:01.31
+Затраченное время: 00:00:04.86
