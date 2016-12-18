@@ -24,9 +24,9 @@ typedef struct
 	char month[3];
 	char day[3];
 	char stoimost[3];
-} TStudent;
+} Tlist;
 
-TStudent stud[30]; // Массив структур
+Tlist stud[30]; // Массив структур
 char name[20]; // Имя файла
 int nst = 0; // Число введенных структур
 int Menu(); // Создание меню
@@ -43,17 +43,17 @@ void proverka();
 void poisk();
 void MySort();
 
-bool sortByIdUp(const TStudent&, const TStudent&); //прототип функции
-bool sortByIdDown(const TStudent&, const TStudent&); //прототип функции
+bool sortByIdUp(const Tlist&, const Tlist&); //прототип функции
+bool sortByIdDown(const Tlist&, const Tlist&); //прототип функции
 
-bool sortByYearUp(const TStudent&, const TStudent&); //прототип функции
-bool sortByYearDown(const TStudent&, const TStudent&); //прототип функции
+bool sortByYearUp(const Tlist&, const Tlist&); //прототип функции
+bool sortByYearDown(const Tlist&, const Tlist&); //прототип функции
 
-bool sortByMonthUp(const TStudent&, const TStudent&); //прототип функции
-bool sortByMonthDown(const TStudent&, const TStudent&); //прототип функции
+bool sortByMonthUp(const Tlist&, const Tlist&); //прототип функции
+bool sortByMonthDown(const Tlist&, const Tlist&); //прототип функции
 
-bool sortByFioUp(const TStudent&, const TStudent&); //прототип функции
-bool sortByFioDown(const TStudent&, const TStudent&); //прототип функции
+bool sortByFioUp(const Tlist&, const Tlist&); //прототип функции
+bool sortByFioDown(const Tlist&, const Tlist&); //прототип функции
 
 string _switch(int month);
 
@@ -174,7 +174,7 @@ void Spisok() // Ввод данных в файла
 		cin >> stud[i].day;
 		cout << "|                  Введите оплату за одинь день по болезни: ";
 		cin >> stud[i].stoimost;
-		fwrite(&stud[i], sizeof(TStudent), 1, fl);
+		fwrite(&stud[i], sizeof(Tlist), 1, fl);
 		system("cls");
 		beginMenu();
 	}
@@ -201,7 +201,7 @@ void OutSpisok() // Вывод списка сотрудников
 	int sum = 0;
 	proverka();
 	nst = 0;
-	TStudent std;
+	Tlist std;
 	cout << "\n|      |-----------------------------------------------------------------|     |\n";
 	printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 	printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
@@ -209,7 +209,7 @@ void OutSpisok() // Вывод списка сотрудников
 
 	while (true)
 	{
-		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+		int nwrt = fread(&std, sizeof(Tlist), 1, fl);
 		if (nwrt != 1) break;
 		stud[nst] = std;
 		int month = atoi(stud[nst].month);
@@ -291,14 +291,14 @@ void IZadanie1() // Вывод результата в текстовый файл
 	int all_sum = 0;
 	proverka();
 	nst = 0;
-	TStudent std;
+	Tlist std;
 	cout << "\n|  |------------------------------------------------------------------------|  |\n";
 	printf("%-3c%-3c%-25s%-10s%-10s%-6s%-9s%-10s%-1c%3c%-1c", '|', '|', "Фамилия", "Год", "Месяц", "Кол.", "оплата", "Выплатить", '|', '|', '\n');
 	printf("%-3c%-3c%-25s%-10s%-10s%-6s%-9s%-10s%-1c%3c%-1c", '|', '|', "сотрудника", "", "", "дней", "за день", "", '|', '|', '\n');
 	cout << "|  |------------------------------------------------------------------------|  |\n";
 	while (true)
 	{
-		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+		int nwrt = fread(&std, sizeof(Tlist), 1, fl);
 		if (nwrt != 1) break;
 		stud[nst] = std;
 
@@ -346,14 +346,14 @@ void IZadanie2()
 	int all_sum = 0;
 	proverka();
 	nst = 0;
-	TStudent std;
+	Tlist std;
 	cout << "\n|  |------------------------------------------------------------------------|  |\n";
 	printf("%-3s%-3c%-25s%-10s%-10s%-6s%-9s%-10s%-1c%3c%-1c", "|", '|', "Фамилия", "Год", "Месяц", "Кол.", "оплата", "Выплатить", '|', '|', '\n');
 	printf("%-3s%-3c%-25s%-10s%-10s%-6s%-9s%-10s%-1c%3c%-1c", "|", '|', "сотрудника", "", "", "дней", "за день", "", '|', '|', '\n');
 	cout << "|  |------------------------------------------------------------------------|  |\n";
 	while (true)
 	{
-		int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+		int nwrt = fread(&std, sizeof(Tlist), 1, fl);
 		if (nwrt != 1) break;
 		stud[nst] = std;
 		int month = atoi(stud[nst].month);
@@ -405,14 +405,14 @@ void poisk()
 		int sum = 0;
 		proverka();
 		nst = 0;
-		TStudent std;
+		Tlist std;
 		cout << "\n|     |-----------------------------------------------------------------|      |\n";
 		printf("%-6c%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%7c%-1c", '|', '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 		printf("%-6c%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%7c%-1c", '|', '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 		cout << "|     |-----------------------------------------------------------------|      |\n";
 		while (true)
 		{
-			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			int nwrt = fread(&std, sizeof(Tlist), 1, fl);
 			if (nwrt != 1) break;
 			stud[nst] = std;
 			int month = atoi(stud[nst].month);
@@ -451,14 +451,14 @@ void poisk()
 		int sum = 0;
 		proverka();
 		nst = 0;
-		TStudent std;
+		Tlist std;
 		cout << "\n|     |-----------------------------------------------------------------|      |\n";
 		printf("%-6c%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%7c%-1c", '|', '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 		printf("%-6c%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%7c%-1c", '|', '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 		cout << "|     |-----------------------------------------------------------------|      |\n";
 		while (true)
 		{
-			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			int nwrt = fread(&std, sizeof(Tlist), 1, fl);
 			if (nwrt != 1) break;
 			stud[nst] = std;
 			int month = atoi(stud[nst].month);
@@ -496,14 +496,14 @@ void poisk()
 		int sum = 0;
 		proverka();
 		nst = 0;
-		TStudent std;
+		Tlist std;
 		cout << "\n|     |-----------------------------------------------------------------|      |\n";
 		printf("%-6c%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%7c%-1c", '|', '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 		printf("%-6c%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%7c%-1c", '|', '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 		cout << "|     |-----------------------------------------------------------------|      |\n";
 		while (true)
 		{
-			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			int nwrt = fread(&std, sizeof(Tlist), 1, fl);
 			if (nwrt != 1) break;
 			stud[nst] = std;
 			int month = atoi(stud[nst].month);
@@ -542,14 +542,14 @@ void poisk()
 		int sum = 0;
 		proverka();
 		nst = 0;
-		TStudent std;
+		Tlist std;
 		cout << "\n|     |-----------------------------------------------------------------|      |\n";
 		printf("%-6c%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%7c%-1c", '|', '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 		printf("%-6c%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%7c%-1c", '|', '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 		cout << "|     |-----------------------------------------------------------------|      |\n";
 		while (true)
 		{
-			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			int nwrt = fread(&std, sizeof(Tlist), 1, fl);
 			if (nwrt != 1) break;
 			stud[nst] = std;
 			int month = atoi(stud[nst].month);
@@ -581,7 +581,7 @@ void MySort()
 {
 	proverka();
 	nst = 0;
-	TStudent std;
+	Tlist std;
 	cout << "|______________________________________________________________________________|\n";
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Поиск по каким критериям вы хотите организовать?", '|');
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "", '|');
@@ -598,7 +598,7 @@ void MySort()
 		int *arr = new int[n];
 		while (true)
 		{
-			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			int nwrt = fread(&std, sizeof(Tlist), 1, fl);
 			if (nwrt != 1) break;
 			stud[nst] = std;
 			arr[nst] = stud[nst].id;
@@ -617,7 +617,7 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <TStudent> studentList;
+			vector <Tlist> studentList;
 			for (int f = 0; f < 30; f++)
 			{
 				if (stud[f].id == '\0')
@@ -654,7 +654,7 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <TStudent> studentList;
+			vector <Tlist> studentList;
 			for (int s = 0; s < 30; s++)
 			{
 				if (stud[s].id == '\0')
@@ -694,7 +694,7 @@ void MySort()
 		int *arr = new int[n];
 		while (true)
 		{
-			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			int nwrt = fread(&std, sizeof(Tlist), 1, fl);
 			if (nwrt != 1) break;
 			stud[nst] = std;
 			arr[nst] = atoi(stud[nst].year);
@@ -713,7 +713,7 @@ void MySort()
 		{
 			int sum = 0;
 			//fclose(fl);
-			vector <TStudent> studentList;
+			vector <Tlist> studentList;
 			for (int l = 0; l < 30; l++)
 			{
 				if (stud[l].year[0] == '\0')
@@ -750,7 +750,7 @@ void MySort()
 		{
 			int sum = 0;
 			//fclose(fl);
-			vector <TStudent> studentList;
+			vector <Tlist> studentList;
 			for (int a = 0; a < 30; a++)
 			{
 				if (stud[a].year[0] == '\0')
@@ -790,7 +790,7 @@ void MySort()
 		int *arr = new int[n];
 		while (true)
 		{
-			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			int nwrt = fread(&std, sizeof(Tlist), 1, fl);
 			if (nwrt != 1) break;
 			stud[nst] = std;
 			arr[nst] = stud[nst].id;
@@ -809,7 +809,7 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <TStudent> studentList;
+			vector <Tlist> studentList;
 			for (int m = 0; m < 30; m++)
 			{
 				if (stud[m].month[0] == '\0')
@@ -846,7 +846,7 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <TStudent> studentList;
+			vector <Tlist> studentList;
 			for (int m = 0; m < 30; m++)
 			{
 				if (stud[m].month[0] == '\0')
@@ -884,7 +884,7 @@ void MySort()
 	{
 		while (true)
 		{
-			int nwrt = fread(&std, sizeof(TStudent), 1, fl);
+			int nwrt = fread(&std, sizeof(Tlist), 1, fl);
 			if (nwrt != 1) break;
 			stud[nst] = std;
 			nst++;
@@ -901,7 +901,7 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <TStudent> studentList;
+			vector <Tlist> studentList;
 			for (int m = 0; m < 30; m++)
 			{
 				if (stud[m].FIO[0] == '\0')
@@ -938,7 +938,7 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <TStudent> studentList;
+			vector <Tlist> studentList;
 			for (int m = 0; m < 30; m++)
 			{
 				if (stud[m].FIO[0] == '\0')
@@ -996,41 +996,41 @@ string _switch(int month)
 	return month2;
 }
 
-bool sortByIdUp(const TStudent& left, const TStudent& right)
+bool sortByIdUp(const Tlist& left, const Tlist& right)
 {
 	return left.id < right.id;
 }
-bool sortByIdDown(const TStudent& left, const TStudent& right)
+bool sortByIdDown(const Tlist& left, const Tlist& right)
 {
 	return left.id > right.id;
 }
 
-bool sortByYearUp(const TStudent& left, const TStudent& right)
+bool sortByYearUp(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.year, right.year) < 0;
 }
 
-bool sortByYearDown(const TStudent& left, const TStudent& right)
+bool sortByYearDown(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.year, right.year) > 0;
 }
 
-bool sortByMonthUp(const TStudent& left, const TStudent& right)
+bool sortByMonthUp(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.month, right.month) < 0;
 }
 
-bool sortByMonthDown(const TStudent& left, const TStudent& right)
+bool sortByMonthDown(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.month, right.month) > 0;
 }
 
-bool sortByFioUp(const TStudent& left, const TStudent& right)
+bool sortByFioUp(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.FIO, right.FIO) < 0;
 }
 
-bool sortByFioDown(const TStudent& left, const TStudent& right)
+bool sortByFioDown(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.FIO, right.FIO) > 0;
 }
