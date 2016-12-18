@@ -617,29 +617,29 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <Tlist> studentList;
+			vector <Tlist> HospitalList;
 			for (int f = 0; f < 30; f++)
 			{
 				if (stud[f].id == '\0')
 					break;
-				studentList.insert(studentList.end(), stud[f]);
+				HospitalList.insert(HospitalList.end(), stud[f]);
 			}
-			sort(studentList.begin(), studentList.end(), sortByIdUp);
+			sort(HospitalList.begin(), HospitalList.end(), sortByIdUp);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 			cout << "|      |-----------------------------------------------------------------|     |\n";
-			for (int g = 0; g < studentList.size(); g++)
+			for (int g = 0; g < HospitalList.size(); g++)
 			{
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
-				string month = _switch(atoi(studentList[g].month));
+				string month = _switch(atoi(HospitalList[g].month));
 				printf("%-7s%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%6c%-1c", "|", '|',
-					studentList[g].id,
-					studentList[g].FIO,
-					studentList[g].year,
+					HospitalList[g].id,
+					HospitalList[g].FIO,
+					HospitalList[g].year,
 					month.c_str(),
-					studentList[g].day,
-					studentList[g].stoimost,
+					HospitalList[g].day,
+					HospitalList[g].stoimost,
 					"руб.",
 					'|',
 					'|',
@@ -654,29 +654,29 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <Tlist> studentList;
+			vector <Tlist> HospitalList;
 			for (int s = 0; s < 30; s++)
 			{
 				if (stud[s].id == '\0')
 					break;
-				studentList.insert(studentList.end(), stud[s]);
+				HospitalList.insert(HospitalList.end(), stud[s]);
 			}
-			sort(studentList.begin(), studentList.end(), sortByIdDown);
+			sort(HospitalList.begin(), HospitalList.end(), sortByIdDown);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 			cout << "|      |-----------------------------------------------------------------|     |\n";
-			for (int d = 0; d < studentList.size(); d++)
+			for (int d = 0; d < HospitalList.size(); d++)
 			{
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
-				string month = _switch(atoi(studentList[d].month));
+				string month = _switch(atoi(HospitalList[d].month));
 				printf("%-7s%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%6c%-1c", "|", '|',
-					studentList[d].id,
-					studentList[d].FIO,
-					studentList[d].year,
+					HospitalList[d].id,
+					HospitalList[d].FIO,
+					HospitalList[d].year,
 					month.c_str(),
-					studentList[d].day,
-					studentList[d].stoimost,
+					HospitalList[d].day,
+					HospitalList[d].stoimost,
 					"руб.",
 					'|',
 					'|',
@@ -713,29 +713,29 @@ void MySort()
 		{
 			int sum = 0;
 			//fclose(fl);
-			vector <Tlist> studentList;
+			vector <Tlist> HospitalList;
 			for (int l = 0; l < 30; l++)
 			{
 				if (stud[l].year[0] == '\0')
 					break;
-				studentList.insert(studentList.end(), stud[l]);
+				HospitalList.insert(HospitalList.end(), stud[l]);
 			}
-			sort(studentList.begin(), studentList.end(), sortByYearUp);
+			sort(HospitalList.begin(), HospitalList.end(), sortByYearUp);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 			cout << "|      |-----------------------------------------------------------------|     |\n";
-			for (int p = 0; p < studentList.size(); p++)
+			for (int p = 0; p < HospitalList.size(); p++)
 			{
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
-				string month = _switch(atoi(studentList[p].month));
+				string month = _switch(atoi(HospitalList[p].month));
 				printf("%-7s%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%6c%-1c", "|", '|',
-					studentList[p].id,
-					studentList[p].FIO,
-					studentList[p].year,
+					HospitalList[p].id,
+					HospitalList[p].FIO,
+					HospitalList[p].year,
 					month.c_str(),
-					studentList[p].day,
-					studentList[p].stoimost,
+					HospitalList[p].day,
+					HospitalList[p].stoimost,
 					"руб.",
 					'|',
 					'|',
@@ -750,29 +750,29 @@ void MySort()
 		{
 			int sum = 0;
 			//fclose(fl);
-			vector <Tlist> studentList;
+			vector <Tlist> HospitalList;
 			for (int a = 0; a < 30; a++)
 			{
 				if (stud[a].year[0] == '\0')
 					break;
-				studentList.insert(studentList.end(), stud[a]);
+				HospitalList.insert(HospitalList.end(), stud[a]);
 			}
-			sort(studentList.begin(), studentList.end(), sortByYearDown);
+			sort(HospitalList.begin(), HospitalList.end(), sortByYearDown);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 			cout << "|      |-----------------------------------------------------------------|     |\n";
-			for (int k = 0; k < studentList.size(); k++)
+			for (int k = 0; k < HospitalList.size(); k++)
 			{
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
-				string month = _switch(atoi(studentList[k].month));
+				string month = _switch(atoi(HospitalList[k].month));
 				printf("%-7s%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%6c%-1c", "|", '|',
-					studentList[k].id,
-					studentList[k].FIO,
-					studentList[k].year,
+					HospitalList[k].id,
+					HospitalList[k].FIO,
+					HospitalList[k].year,
 					month.c_str(),
-					studentList[k].day,
-					studentList[k].stoimost,
+					HospitalList[k].day,
+					HospitalList[k].stoimost,
 					"руб.",
 					'|',
 					'|',
@@ -809,29 +809,29 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <Tlist> studentList;
+			vector <Tlist> HospitalList;
 			for (int m = 0; m < 30; m++)
 			{
 				if (stud[m].month[0] == '\0')
 					break;
-				studentList.insert(studentList.end(), stud[m]);
+				HospitalList.insert(HospitalList.end(), stud[m]);
 			}
-			sort(studentList.begin(), studentList.end(), sortByMonthUp);
+			sort(HospitalList.begin(), HospitalList.end(), sortByMonthUp);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 			cout << "|      |-----------------------------------------------------------------|     |\n";
-			for (int v = 0; v < studentList.size(); v++)
+			for (int v = 0; v < HospitalList.size(); v++)
 			{
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
-				string month = _switch(atoi(studentList[v].month));
+				string month = _switch(atoi(HospitalList[v].month));
 				printf("%-7s%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%6c%-1c", "|", '|',
-					studentList[v].id,
-					studentList[v].FIO,
-					studentList[v].year,
+					HospitalList[v].id,
+					HospitalList[v].FIO,
+					HospitalList[v].year,
 					month.c_str(),
-					studentList[v].day,
-					studentList[v].stoimost,
+					HospitalList[v].day,
+					HospitalList[v].stoimost,
 					"руб.",
 					'|',
 					'|',
@@ -846,29 +846,29 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <Tlist> studentList;
+			vector <Tlist> HospitalList;
 			for (int m = 0; m < 30; m++)
 			{
 				if (stud[m].month[0] == '\0')
 					break;
-				studentList.insert(studentList.end(), stud[m]);
+				HospitalList.insert(HospitalList.end(), stud[m]);
 			}
-			sort(studentList.begin(), studentList.end(), sortByMonthDown);
+			sort(HospitalList.begin(), HospitalList.end(), sortByMonthDown);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 			cout << "|      |-----------------------------------------------------------------|     |\n";
-			for (int b = 0; b < studentList.size(); b++)
+			for (int b = 0; b < HospitalList.size(); b++)
 			{
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
-				string month = _switch(atoi(studentList[b].month));
+				string month = _switch(atoi(HospitalList[b].month));
 				printf("%-7s%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%6c%-1c", "|", '|',
-					studentList[b].id,
-					studentList[b].FIO,
-					studentList[b].year,
+					HospitalList[b].id,
+					HospitalList[b].FIO,
+					HospitalList[b].year,
 					month.c_str(),
-					studentList[b].day,
-					studentList[b].stoimost,
+					HospitalList[b].day,
+					HospitalList[b].stoimost,
 					"руб.",
 					'|',
 					'|',
@@ -901,29 +901,29 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <Tlist> studentList;
+			vector <Tlist> HospitalList;
 			for (int m = 0; m < 30; m++)
 			{
 				if (stud[m].FIO[0] == '\0')
 					break;
-				studentList.insert(studentList.end(), stud[m]);
+				HospitalList.insert(HospitalList.end(), stud[m]);
 			}
-			sort(studentList.begin(), studentList.end(), sortByFioUp);
+			sort(HospitalList.begin(), HospitalList.end(), sortByFioUp);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 			cout << "|      |-----------------------------------------------------------------|     |\n";
-			for (int n = 0; n < studentList.size(); n++)
+			for (int n = 0; n < HospitalList.size(); n++)
 			{
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
-				string month = _switch(atoi(studentList[n].month));
+				string month = _switch(atoi(HospitalList[n].month));
 				printf("%-7s%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%6c%-1c", "|", '|',
-					studentList[n].id,
-					studentList[n].FIO,
-					studentList[n].year,
+					HospitalList[n].id,
+					HospitalList[n].FIO,
+					HospitalList[n].year,
 					month.c_str(),
-					studentList[n].day,
-					studentList[n].stoimost,
+					HospitalList[n].day,
+					HospitalList[n].stoimost,
 					"руб.",
 					'|',
 					'|',
@@ -938,29 +938,29 @@ void MySort()
 		{
 			int sum = 0;
 			fclose(fl);
-			vector <Tlist> studentList;
+			vector <Tlist> HospitalList;
 			for (int m = 0; m < 30; m++)
 			{
 				if (stud[m].FIO[0] == '\0')
 					break;
-				studentList.insert(studentList.end(), stud[m]);
+				HospitalList.insert(HospitalList.end(), stud[m]);
 			}
-			sort(studentList.begin(), studentList.end(), sortByFioDown);
+			sort(HospitalList.begin(), HospitalList.end(), sortByFioDown);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 			cout << "|      |-----------------------------------------------------------------|     |\n";
-			for (int n = 0; n < studentList.size(); n++)
+			for (int n = 0; n < HospitalList.size(); n++)
 			{
 				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
-				string month = _switch(atoi(studentList[n].month));
+				string month = _switch(atoi(HospitalList[n].month));
 				printf("%-7s%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%6c%-1c", "|", '|',
-					studentList[n].id,
-					studentList[n].FIO,
-					studentList[n].year,
+					HospitalList[n].id,
+					HospitalList[n].FIO,
+					HospitalList[n].year,
 					month.c_str(),
-					studentList[n].day,
-					studentList[n].stoimost,
+					HospitalList[n].day,
+					HospitalList[n].stoimost,
 					"руб.",
 					'|',
 					'|',
