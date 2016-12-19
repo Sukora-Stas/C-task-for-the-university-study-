@@ -994,36 +994,36 @@ string _switch(int month)
 	return month2;
 }
 
-bool sortByIdUp(const Tlist& left, const Tlist& right)
+bool SortByIdUp(const Tlist& left, const Tlist& right)
 {
 	return left.id < right.id;
 }
-bool sortByIdDown(const Tlist& left, const Tlist& right)
+bool SortByIdDown(const Tlist& left, const Tlist& right)
 {
 	return left.id > right.id;
 }
 
-bool sortByYearUp(const Tlist& left, const Tlist& right)
+bool SortByYearUp(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.year, right.year) < 0;
 }
 
-bool sortByYearDown(const Tlist& left, const Tlist& right)
+bool SortByYearDown(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.year, right.year) > 0;
 }
 
-bool sortByMonthUp(const Tlist& left, const Tlist& right)
+bool SortByMonthUp(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.month, right.month) < 0;
 }
 
-bool sortByMonthDown(const Tlist& left, const Tlist& right)
+bool SortByMonthDown(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.month, right.month) > 0;
 }
 
-bool sortByFioUp(const Tlist& left, const Tlist& right)
+bool SortByFioUp(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.FIO, right.FIO) < 0;
 }
