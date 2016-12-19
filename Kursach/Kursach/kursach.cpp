@@ -7,12 +7,9 @@
 #include <string.h>
 #include <istream>
 #include <Windows.h>
-
 #include <algorithm>
 #include <vector>
-
 #include "Authorization.h"
-
 using namespace std;
 
 FILE *fl;
@@ -29,31 +26,32 @@ typedef struct
 Tlist stud[30]; // Массив структур
 char name[20]; // Имя файла
 int nst = 0; // Число введенных структур
+
 int Menu(); // Создание меню
 void Newf(); // Создание нового файла
 void Spisok(); // Формирование файла
-void OutSpisok(); // Открытие файла
-void SelectionFile(); // Вывод результата на экран
+void OutSpisok();  // Вывод результата на экран
+void SelectionFile(); // Открытие файла
 
-void Zadanie();
-void IZadanie1();
-void IZadanie2();
+void Zadanie(); //задание
+void IZadanie1();  //ИДЗ1
+void IZadanie2();  //ИДЗ2
 
-void proverka();
-void poisk();
-void MySort();
+void Proverka();    //проверка на наличие файла
+void Poisk();    //прототип поиска
+void MySort();    //прототип сортировки
 
-bool sortByIdUp(const Tlist&, const Tlist&); //прототип функции
-bool sortByIdDown(const Tlist&, const Tlist&); //прототип функции
+bool SortByIdUp(const Tlist&, const Tlist&); //прототип функции
+bool SortByIdDown(const Tlist&, const Tlist&); //прототип функции
 
-bool sortByYearUp(const Tlist&, const Tlist&); //прототип функции
-bool sortByYearDown(const Tlist&, const Tlist&); //прототип функции
+bool SortByYearUp(const Tlist&, const Tlist&); //прототип функции
+bool SortByYearDown(const Tlist&, const Tlist&); //прототип функции
 
-bool sortByMonthUp(const Tlist&, const Tlist&); //прототип функции
-bool sortByMonthDown(const Tlist&, const Tlist&); //прототип функции
+bool SortByMonthUp(const Tlist&, const Tlist&); //прототип функции
+bool SortByMonthDown(const Tlist&, const Tlist&); //прототип функции
 
-bool sortByFioUp(const Tlist&, const Tlist&); //прототип функции
-bool sortByFioDown(const Tlist&, const Tlist&); //прототип функции
+bool SortByFioUp(const Tlist&, const Tlist&); //прототип функции
+bool SortByFioDown(const Tlist&, const Tlist&); //прототип функции
 
 string _switch(int month);
 
@@ -96,7 +94,7 @@ int main()
 		case 4: SelectionFile(); break;
 		case 5: IZadanie1(); break;
 		case 6: IZadanie2(); break;
-		case 7: poisk(); break;
+		case 7: Poisk(); break;
 		case 8: MySort(); break;
 		case 9: Zadanie(); break;
 		case 10: return 0;
@@ -118,7 +116,7 @@ void beginMenu()
 	cout << "|______________________________________________________________________________|\n";
 }
 
-void proverka()
+void Proverka()
 {
 	if ((fl = fopen(name, "rb+")) == NULL)
 	{
@@ -155,7 +153,7 @@ int Menu() // Меню
 void Spisok() // Ввод данных в файла
 {
 	int id = 1;
-	proverka();
+	Proverka();
 	cout << "|                  Введите число сотрудников, которых необходимо добавить" << endl;
 	cin >> nst;
 	for (int i = 0; i<nst; i++)
@@ -199,7 +197,7 @@ void Newf() // Создание нового файла
 void OutSpisok() // Вывод списка сотрудников
 {
 	int sum = 0;
-	proverka();
+	Proverka();
 	nst = 0;
 	Tlist std;
 	cout << "\n|      |-----------------------------------------------------------------|     |\n";
@@ -289,7 +287,7 @@ void IZadanie1() // Вывод результата в текстовый файл
 
 	int sum = 0;
 	int all_sum = 0;
-	proverka();
+	Proverka();
 	nst = 0;
 	Tlist std;
 	cout << "\n|  |------------------------------------------------------------------------|  |\n";
@@ -344,7 +342,7 @@ void IZadanie2()
 
 	int sum = 0;
 	int all_sum = 0;
-	proverka();
+	Proverka();
 	nst = 0;
 	Tlist std;
 	cout << "\n|  |------------------------------------------------------------------------|  |\n";
@@ -381,7 +379,7 @@ void IZadanie2()
 	fclose(fl);
 }
 
-void poisk()
+void Poisk()
 {
 	cout << "|______________________________________________________________________________|\n";
 	printf("%-1c%-1c%-4s%-74s%-1c", '\n', '|', "", "Поиск по каким критериям вы хотите организовать?", '|');
@@ -403,7 +401,7 @@ void poisk()
 		cout << "|    ";
 		cin >> number;
 		int sum = 0;
-		proverka();
+		Proverka();
 		nst = 0;
 		Tlist std;
 		cout << "\n|     |-----------------------------------------------------------------|      |\n";
@@ -449,7 +447,7 @@ void poisk()
 		cout << "|    ";
 		cin >> name;
 		int sum = 0;
-		proverka();
+		Proverka();
 		nst = 0;
 		Tlist std;
 		cout << "\n|     |-----------------------------------------------------------------|      |\n";
@@ -494,7 +492,7 @@ void poisk()
 		cout << "|    ";
 		cin >> year;
 		int sum = 0;
-		proverka();
+		Proverka();
 		nst = 0;
 		Tlist std;
 		cout << "\n|     |-----------------------------------------------------------------|      |\n";
@@ -540,7 +538,7 @@ void poisk()
 		cout << "|    ";
 		cin >> monthe;
 		int sum = 0;
-		proverka();
+		Proverka();
 		nst = 0;
 		Tlist std;
 		cout << "\n|     |-----------------------------------------------------------------|      |\n";
@@ -579,7 +577,7 @@ void poisk()
 
 void MySort()
 {
-	proverka();
+	Proverka();
 	nst = 0;
 	Tlist std;
 	cout << "|______________________________________________________________________________|\n";
@@ -624,7 +622,7 @@ void MySort()
 					break;
 				HospitalList.insert(HospitalList.end(), stud[f]);
 			}
-			sort(HospitalList.begin(), HospitalList.end(), sortByIdUp);
+			sort(HospitalList.begin(), HospitalList.end(), SortByIdUp);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
@@ -661,7 +659,7 @@ void MySort()
 					break;
 				HospitalList.insert(HospitalList.end(), stud[s]);
 			}
-			sort(HospitalList.begin(), HospitalList.end(), sortByIdDown);
+			sort(HospitalList.begin(), HospitalList.end(), SortByIdDown);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
@@ -720,7 +718,7 @@ void MySort()
 					break;
 				HospitalList.insert(HospitalList.end(), stud[l]);
 			}
-			sort(HospitalList.begin(), HospitalList.end(), sortByYearUp);
+			sort(HospitalList.begin(), HospitalList.end(), SortByYearUp);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
@@ -757,7 +755,7 @@ void MySort()
 					break;
 				HospitalList.insert(HospitalList.end(), stud[a]);
 			}
-			sort(HospitalList.begin(), HospitalList.end(), sortByYearDown);
+			sort(HospitalList.begin(), HospitalList.end(), SortByYearDown);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
@@ -816,7 +814,7 @@ void MySort()
 					break;
 				HospitalList.insert(HospitalList.end(), stud[m]);
 			}
-			sort(HospitalList.begin(), HospitalList.end(), sortByMonthUp);
+			sort(HospitalList.begin(), HospitalList.end(), SortByMonthUp);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
@@ -853,7 +851,7 @@ void MySort()
 					break;
 				HospitalList.insert(HospitalList.end(), stud[m]);
 			}
-			sort(HospitalList.begin(), HospitalList.end(), sortByMonthDown);
+			sort(HospitalList.begin(), HospitalList.end(), SortByMonthDown);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
@@ -908,14 +906,14 @@ void MySort()
 					break;
 				HospitalList.insert(HospitalList.end(), stud[m]);
 			}
-			sort(HospitalList.begin(), HospitalList.end(), sortByFioUp);
+			sort(HospitalList.begin(), HospitalList.end(), SortByFioUp);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 			cout << "|      |-----------------------------------------------------------------|     |\n";
 			for (int n = 0; n < HospitalList.size(); n++)
 			{
-				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
+				sum += (atoi(HospitalList[n].stoimost))*(atoi(HospitalList[n].day));
 				string month = _switch(atoi(HospitalList[n].month));
 				printf("%-7s%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%6c%-1c", "|", '|',
 					HospitalList[n].id,
@@ -945,14 +943,14 @@ void MySort()
 					break;
 				HospitalList.insert(HospitalList.end(), stud[m]);
 			}
-			sort(HospitalList.begin(), HospitalList.end(), sortByFioDown);
+			sort(HospitalList.begin(), HospitalList.end(), SortByFioDown);
 			cout << "\n|      |-----------------------------------------------------------------|     |\n";
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "Номер", "Фамилия", "Год", "Месяц", "кол.", "оплата", '|', '|', '\n');
 			printf("%-7s%-3c%-7s%-18s%-10s%-10s%-6s%-12s%-1c%6c%-1c", "|", '|', "", "сотрудника", "", "", "дней", "за день", '|', '|', '\n');
 			cout << "|      |-----------------------------------------------------------------|     |\n";
 			for (int n = 0; n < HospitalList.size(); n++)
 			{
-				sum += (atoi(stud[nst].stoimost))*(atoi(stud[nst].day));
+				sum += (atoi(HospitalList[n].stoimost))*(atoi(HospitalList[n].day));
 				string month = _switch(atoi(HospitalList[n].month));
 				printf("%-7s%-3c%-5i%-20s%-10s%-10s%-6s%-3s%-9s%-1c%6c%-1c", "|", '|',
 					HospitalList[n].id,
@@ -1030,7 +1028,7 @@ bool sortByFioUp(const Tlist& left, const Tlist& right)
 	return strcmp(left.FIO, right.FIO) < 0;
 }
 
-bool sortByFioDown(const Tlist& left, const Tlist& right)
+bool SortByFioDown(const Tlist& left, const Tlist& right)
 {
 	return strcmp(left.FIO, right.FIO) > 0;
 }
