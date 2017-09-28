@@ -22,3 +22,12 @@
 *.lib
 
 *.opensdf
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncd
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
