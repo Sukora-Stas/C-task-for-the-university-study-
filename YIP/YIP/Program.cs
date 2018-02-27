@@ -11,7 +11,20 @@ namespace YIP
         static void Main(string[] args)
         {
 
-            Console.WriteLine("input size array!");
+
+
+
+
+
+
+
+
+
+
+
+
+            //laba3
+           /* Console.WriteLine("input size array!");
             Console.Write("arr[N]: ");
             int N = int.Parse(Console.ReadLine());
 
@@ -43,7 +56,7 @@ namespace YIP
             Console.WriteLine();
             Console.WriteLine("Otvet: " + sum);
 
-            Console.ReadLine();
+            Console.ReadLine();*/
 
 
 
