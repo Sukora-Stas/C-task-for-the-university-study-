@@ -12,10 +12,38 @@ namespace YIP
         {
 
             Console.WriteLine("input size array!");
-            Console.Write("arr: ");
+            Console.Write("arr[N]: ");
             int N = int.Parse(Console.ReadLine());
 
+            Console.Write("K: ");
+            int K = int.Parse(Console.ReadLine());
+
+            int[] arr = new int[N];
             Random rnd = new Random();
+
+            for (int i = 0; i <arr.Length; i++)
+            {
+                arr[i] = rnd.Next(1, 1001);
+                if (i == 4)
+                {
+                    Console.Write(arr[i] + " ");
+
+                    Console.WriteLine();
+                    continue;
+                }
+                Console.Write(arr[i]+" ");
+            }
+
+            int sum = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] % K == 0) sum += arr[i];
+            }
+            Console.WriteLine();
+            Console.WriteLine("Otvet: " + sum);
+
+            Console.ReadLine();
 
 
 
