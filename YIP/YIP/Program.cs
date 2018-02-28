@@ -14,7 +14,7 @@ namespace YIP
             menu();
         }
 
-
+//TODO:обработчик исключений на ввод(методы)
         private static void menu()
         {
             bool ex = true;
@@ -83,6 +83,8 @@ namespace YIP
         
         private static void laba3()
         {
+            Console.WriteLine("В массив A[N] занесены натуральные числа.\n" +
+                              " Найти сумму элементов, крат-ных данному К.");
             Console.WriteLine("input size array!");
             Console.Write("arr[N]: ");
             int N = int.Parse(Console.ReadLine());
@@ -123,6 +125,10 @@ namespace YIP
         
         private static void laba1()
         {
+            Console.WriteLine("Используя среду разработки Microsoft Visual Studio,\n" +
+                              " создать консоль-ное приложение на языке программирования C#.\n" +
+                              " Приложение должно вы-числять значение выражения (см. варианты).\n" +
+                              " Ввод данных должен произво-диться с клавиатуры.");
             Console.WriteLine("input variable");
             Console.Write("a: ");
             int a = int.Parse(Console.ReadLine());
