@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,49 @@ namespace YIP
     {
         static void Main(string[] args)
         {
+            menu();
         }
 
+
+        private static void menu()
+        {
+           
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Hello man :) Variant 1. \nSukora and Stolpner");
+                Console.WriteLine("Please select menu item");
+                Console.WriteLine("1: Laba 1");
+                Console.WriteLine("2: Laba 2");
+                Console.WriteLine("3: Laba 3");
+                Console.WriteLine("4: Laba 4");
+                Console.WriteLine("5: Laba 5");
+                Console.WriteLine("6: Laba 6");
+                Console.WriteLine("7: Laba 7");
+                Console.WriteLine("8: Laba 8");
+                
+                int value = int.Parse(Console.ReadLine());
+               
+                switch (value)
+                {
+                        
+                }
+                
+            }
+        }
+        
+        
+        
+        private static void laba2()
+        {
+           
+            
+            
+        } 
+        
+        
+        
+        
         private static void laba3()
         {
             Console.WriteLine("input size array!");
@@ -49,6 +91,9 @@ namespace YIP
             Console.ReadLine();
         }
 
+        
+        
+        
         private static void laba1()
         {
             Console.WriteLine("input variable");
