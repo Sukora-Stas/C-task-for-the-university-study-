@@ -17,8 +17,8 @@ namespace YIP
 
         private static void menu()
         {
-           
-            while (true)
+            bool ex = true;
+            while (ex)
             {
                 Console.Clear();
                 Console.WriteLine("Hello man :) Variant 1. \nSukora and Stolpner");
@@ -31,6 +31,7 @@ namespace YIP
                 Console.WriteLine("6: Laba 6");
                 Console.WriteLine("7: Laba 7");
                 Console.WriteLine("8: Laba 8");
+                Console.WriteLine("9: Exit");
                 
                 int value = int.Parse(Console.ReadLine());
                
@@ -54,8 +55,15 @@ namespace YIP
                         break;
                     case 8:
                         break;
-                            
-                                
+                    case 9:
+                        Console.WriteLine("Do you really want to go out? Y/N");
+                        string exit = Console.ReadLine();
+                        if (exit.Equals("Y") || exit.Equals("y"))
+                            ex = false;
+                        break;
+                    default:
+                        Console.WriteLine("Correct you'r input");
+                        break;
                 }
                 
             }
