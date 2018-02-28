@@ -32,9 +32,9 @@ namespace YIP
                 Console.WriteLine("7: Laba 7");
                 Console.WriteLine("8: Laba 8");
                 Console.WriteLine("9: Exit");
-                
+
                 int value = int.Parse(Console.ReadLine());
-               
+
                 switch (value)
                 {
                     case 1:
@@ -65,22 +65,19 @@ namespace YIP
                         Console.WriteLine("Correct you'r input");
                         break;
                 }
-                
             }
         }
-        
-        
-        
+
+
         private static void laba2()
         {
-           
-            
-            
-        } 
-        
-        
-        
-        
+            Console.WriteLine(
+                "Построить систему классов для описания плоских геометрических фигур: круга, квадрата, прямоугольника.\n" +
+                " Предусмотреть методы для создания объ-ектов, перемещения на плоскости,\n" +
+                " изменения размеров и поворота на задан-ный угол.\n");
+        }
+
+
         private static void laba3()
         {
             Console.WriteLine("В массив A[N] занесены натуральные числа.\n" +
@@ -120,9 +117,7 @@ namespace YIP
             Console.ReadLine();
         }
 
-        
-        
-        
+
         private static void laba1()
         {
             Console.WriteLine("Используя среду разработки Microsoft Visual Studio,\n" +
