@@ -10,22 +10,11 @@ namespace YIP
     {
         static void Main(string[] args)
         {
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-            
-
-            //laba3
-           /* Console.WriteLine("input size array!");
+        private static void laba3()
+        {
+            Console.WriteLine("input size array!");
             Console.Write("arr[N]: ");
             int N = int.Parse(Console.ReadLine());
 
@@ -35,7 +24,7 @@ namespace YIP
             int[] arr = new int[N];
             Random rnd = new Random();
 
-            for (int i = 0; i <arr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 arr[i] = rnd.Next(1, 1001);
                 if (i == 4)
@@ -45,7 +34,7 @@ namespace YIP
                     Console.WriteLine();
                     continue;
                 }
-                Console.Write(arr[i]+" ");
+                Console.Write(arr[i] + " ");
             }
 
             int sum = 0;
@@ -57,9 +46,7 @@ namespace YIP
             Console.WriteLine();
             Console.WriteLine("Otvet: " + sum);
 
-            Console.ReadLine();*/
-
-
+            Console.ReadLine();
         }
 
         private static void laba1()
@@ -83,10 +70,7 @@ namespace YIP
             Console.Write("Otvet: " + sum);
 
 
-
             Console.ReadLine();
         }
-        
-        
     }
 }
