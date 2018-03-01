@@ -6,8 +6,18 @@
         {
         }
         
-        private void move()
+        public void move()
         {
+        }
+
+        public void Scale()
+        {
+            
+        }
+        
+        public void Rotate()
+        {
+            
         }
     }
 }
