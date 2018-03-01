@@ -41,6 +41,7 @@ namespace YIP
                         laba1();
                         break;
                     case 2:
+                        laba2();
                         break;
                     case 3:
                         laba3();
