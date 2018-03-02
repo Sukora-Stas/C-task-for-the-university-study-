@@ -1,6 +1,6 @@
 ﻿namespace YIP
 {
-    public class Restangle
+    public class Restangle : Figure2D
     {
         private int x1 { get; set; }
         private int y1 { get; set; }
@@ -8,6 +8,10 @@
         private int y2 { get; set; }
 
         public Restangle()
+        {
+        }
+
+        public void draw()
         {
         }
 
@@ -19,11 +23,16 @@
             this.y2 = y2;
         }
 
-        public void Scale()
+        public void scale(int scale)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Scale(int scale)
         {
         }
 
-        public void Rotate()
+        public void Rotate(double radius)
         {
         }
     }
