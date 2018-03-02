@@ -47,10 +47,13 @@ namespace YIP
                         laba3();
                         break;
                     case 4:
+                        laba4();
                         break;
                     case 5:
+                        test();
                         break;
                     case 6:
+                        test2();
                         break;
                     case 7:
                         break;
@@ -59,7 +62,7 @@ namespace YIP
                     case 9:
                         Console.WriteLine("Do you really want to go out? Y/N");
                         string exit = Console.ReadLine();
-                        if (exit.Equals("Y") || exit.Equals("y"))
+                        if (exit.ToLower().Equals("y"))
                             ex = false;
                         break;
                     default:
@@ -69,6 +72,44 @@ namespace YIP
             }
         }
 
+        private static void test2()
+        {
+            Action<int, int> write = (xp, yp) => { Console.SetCursorPosition(xp, yp); Console.Write("*"); };
+ 
+            int centerX = 20, centerY = 10, radius = 8, x = -radius;
+            while (x < radius)
+            {
+                var y = (int)Math.Floor(Math.Sqrt(radius * radius - x * x));
+ 
+                write(x + centerX, y + centerY);
+                y = -y;
+                write(x + centerX, y + centerY);
+                x++;
+            }
+            Console.ReadLine();
+        }
+        
+        private static void test()
+        {
+            int n = int.Parse(Console.ReadLine());
+            var str = new String('*',n);
+            Console.WriteLine(str);
+            int i=0;
+            while (i != n - 2)
+            {
+                Console.WriteLine("*" + new string(' ', n - 2) + "*");
+                i++;
+            }
+            Console.WriteLine(str);
+            Console.ReadLine();
+        }
+
+
+        private static void laba4()
+        {
+            Console.WriteLine("Реализовать интерфейсы и показать их работоспособность. " +
+                              "Ввод данных должен производиться с клавиатуры");
+        }
 
         private static void laba2()
         {
