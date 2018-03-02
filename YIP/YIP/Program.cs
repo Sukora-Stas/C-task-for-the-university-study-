@@ -76,7 +76,7 @@ namespace YIP
         {
             Action<int, int> write = (xp, yp) => { Console.SetCursorPosition(xp, yp); Console.Write("*"); };
  
-            int centerX = 20, centerY = 10, radius = 8, x = -radius;
+            int centerX = 40, centerY = 10, radius = 8, x = -radius;
             while (x < radius)
             {
                 var y = (int)Math.Floor(Math.Sqrt(radius * radius - x * x));
