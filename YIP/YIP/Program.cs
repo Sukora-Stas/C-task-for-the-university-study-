@@ -9,6 +9,9 @@ namespace YIP
 {
     class Program
     {
+        
+        delegate void GetMessage();
+        
         static void Main(string[] args)
         {
             menu();
@@ -69,6 +72,11 @@ namespace YIP
                         break;
                 }
             }
+        }
+        
+        private static void Show_Message(GetMessage _del)
+        {
+            _del.Invoke();
         }
 
         private static void test2()
@@ -202,6 +210,11 @@ namespace YIP
             {
                 Console.Write(text);
             }
+        }
+
+        private static string read()
+        {
+            return Console.ReadLine();
         }
     }
 }
