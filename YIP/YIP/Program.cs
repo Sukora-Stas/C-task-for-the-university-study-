@@ -9,9 +9,8 @@ namespace YIP
 {
     class Program
     {
-        
         delegate void GetMessage();
-        
+
         static void Main(string[] args)
         {
             menu();
@@ -35,7 +34,7 @@ namespace YIP
                 message("8: Laba 8");
                 message("9: Exit");
 
-                int value = int.Parse(Console.ReadLine());
+                int value = int.Parse(read());
 
                 switch (value)
                 {
@@ -63,7 +62,7 @@ namespace YIP
                         break;
                     case 9:
                         message("Do you really want to go out? Y/N");
-                        string exit = Console.ReadLine();
+                        string exit = read();
                         if (exit.ToLower().Equals("y"))
                             ex = false;
                         break;
@@ -73,7 +72,7 @@ namespace YIP
                 }
             }
         }
-        
+
         private static void Show_Message(GetMessage _del)
         {
             _del.Invoke();
@@ -102,17 +101,17 @@ namespace YIP
 
         private static void test()
         {
-            int n = int.Parse(Console.ReadLine());
+            int n = int.Parse(read());
             var str = new String('*', n);
-            Console.WriteLine(str);
+            message(str);
             int i = 0;
             while (i != n - 2)
             {
-                Console.WriteLine("*" + new string(' ', n - 2) + "*");
+                message("*" + new string(' ', n - 2) + "*");
                 i++;
             }
             message(str);
-            Console.ReadLine();
+            read();
         }
 
 
@@ -137,10 +136,10 @@ namespace YIP
                     " Найти сумму элементов, крат-ных данному К.");
             message("input size array!");
             message("arr[N]: ", false);
-            int N = int.Parse(Console.ReadLine());
+            int N = int.Parse(read());
 
             Console.Write("K: ");
-            int K = int.Parse(Console.ReadLine());
+            int K = int.Parse(read());
 
             int[] arr = new int[N];
             Random rnd = new Random();
@@ -150,12 +149,12 @@ namespace YIP
                 arr[i] = rnd.Next(1, 1001);
                 if (i == 4)
                 {
-                    Console.Write(arr[i] + " ");
+                    message(arr[i] + " ", false);
 
-                    Console.WriteLine();
+                    message();
                     continue;
                 }
-                Console.Write(arr[i] + " ");
+                message(arr[i] + " ", false);
             }
 
             int sum = 0;
@@ -167,7 +166,7 @@ namespace YIP
             message();
             message("Otvet: " + sum);
 
-            Console.ReadLine();
+            read();
         }
 
 
@@ -179,13 +178,13 @@ namespace YIP
                     " Ввод данных должен произво-диться с клавиатуры.");
             message("input variable");
             message("a: ", false);
-            int a = int.Parse(Console.ReadLine());
+            int a = int.Parse(read());
 
             Console.Write("b: ");
-            int b = int.Parse(Console.ReadLine());
+            int b = int.Parse(read());
 
             Console.Write("c: ");
-            int c = int.Parse(Console.ReadLine());
+            int c = int.Parse(read());
 
 
             double sum = 0;
@@ -196,7 +195,7 @@ namespace YIP
             message("Otvet: " + sum, false);
 
 
-            Console.ReadLine();
+            read();
         }
 
 
