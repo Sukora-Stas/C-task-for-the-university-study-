@@ -111,7 +111,7 @@ namespace YIP
         private static void laba4()
         {
             message("Реализовать интерфейсы и показать их работоспособность. " +
-                              "Ввод данных должен производиться с клавиатуры");
+                    "Ввод данных должен производиться с клавиатуры");
         }
 
         private static void laba2()
@@ -126,9 +126,9 @@ namespace YIP
         private static void laba3()
         {
             message("В массив A[N] занесены натуральные числа.\n" +
-                              " Найти сумму элементов, крат-ных данному К.");
+                    " Найти сумму элементов, крат-ных данному К.");
             message("input size array!");
-            message("arr[N]: ",false);
+            message("arr[N]: ", false);
             int N = int.Parse(Console.ReadLine());
 
             Console.Write("K: ");
@@ -166,9 +166,9 @@ namespace YIP
         private static void laba1()
         {
             message("Используя среду разработки Microsoft Visual Studio,\n" +
-                              " создать консоль-ное приложение на языке программирования C#.\n" +
-                              " Приложение должно вы-числять значение выражения (см. варианты).\n" +
-                              " Ввод данных должен произво-диться с клавиатуры.");
+                    " создать консоль-ное приложение на языке программирования C#.\n" +
+                    " Приложение должно вы-числять значение выражения (см. варианты).\n" +
+                    " Ввод данных должен произво-диться с клавиатуры.");
             message("input variable");
             message("a: ", false);
             int a = int.Parse(Console.ReadLine());
