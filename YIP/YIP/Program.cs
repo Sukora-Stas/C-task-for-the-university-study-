@@ -74,13 +74,17 @@ namespace YIP
 
         private static void test2()
         {
-            Action<int, int> write = (xp, yp) => { Console.SetCursorPosition(xp, yp); Console.Write("*"); };
- 
+            Action<int, int> write = (xp, yp) =>
+            {
+                Console.SetCursorPosition(xp, yp);
+                Console.Write("*");
+            };
+
             int centerX = 40, centerY = 10, radius = 8, x = -radius;
             while (x < radius)
             {
-                var y = (int)Math.Floor(Math.Sqrt(radius * radius - x * x));
- 
+                var y = (int) Math.Floor(Math.Sqrt(radius * radius - x * x));
+
                 write(x + centerX, y + centerY);
                 y = -y;
                 write(x + centerX, y + centerY);
@@ -88,13 +92,13 @@ namespace YIP
             }
             Console.ReadLine();
         }
-        
+
         private static void test()
         {
             int n = int.Parse(Console.ReadLine());
-            var str = new String('*',n);
+            var str = new String('*', n);
             Console.WriteLine(str);
-            int i=0;
+            int i = 0;
             while (i != n - 2)
             {
                 Console.WriteLine("*" + new string(' ', n - 2) + "*");
@@ -186,6 +190,19 @@ namespace YIP
 
 
             Console.ReadLine();
+        }
+
+
+        private void message(string text, bool line = true)
+        {
+            if (line)
+            {
+                Console.WriteLine(text);
+            }
+            else
+            {
+                Console.Write(text);
+            }
         }
     }
 }
