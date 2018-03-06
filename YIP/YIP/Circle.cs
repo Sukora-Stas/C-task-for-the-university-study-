@@ -4,13 +4,19 @@ namespace YIP
 {
     public class Circle : Figure2D
     {
-        public int x { get; set; }
-        public int y { get; set; }
+        public int centerX { get; set; }
+        public int centerY { get; set; }
         public int radius { get; set; }
-        public int x2 { get; set; }
 
         public Circle()
         {
+        }
+
+        public Circle(int centerX, int centerY, int radius)
+        {
+            this.centerX = centerX;
+            this.centerY = centerY;
+            this.radius = radius;
         }
 
 
@@ -22,7 +28,7 @@ namespace YIP
                 Console.Write("*");
             };
 
-            int centerX = 40, centerY = 10, radius = 8, x = -radius;
+            int x = -radius;
             while (x < radius)
             {
                 var y = (int) Math.Floor(Math.Sqrt(radius * radius - x * x));
@@ -33,12 +39,12 @@ namespace YIP
                 x++;
             }
             Console.ReadLine();
+
         }
 
         public void move(int x1, int x2, int y1, int y2)
         {
-            this.x = x1;
-            this.y = y1;
+           
         }
 
         public void scale(int scale)

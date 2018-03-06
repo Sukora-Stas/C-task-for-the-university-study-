@@ -24,9 +24,9 @@ namespace YIP
                 Console.Clear();
                 message("Hello man :) Variant 1. \nSukora and Stolpner");
                 message("Please select menu item");
-                message("1: Laba 1 - done");//
-                message("2: Laba 2 - done");//
-                message("3: Laba 3 - done");//
+                message("1: Laba 1 - done"); //
+                message("2: Laba 2 - done"); //
+                message("3: Laba 3 - done"); //
                 message("4: Laba 4 - done");
                 message("5: Laba 5 - 50/50");
                 message("6: Laba 6");
@@ -35,18 +35,16 @@ namespace YIP
                 message("9: Exit");
 
                 int value;
-                
+
                 try
                 {
                     value = int.Parse(read());
-
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine("Input corect value");
                     read();
                     continue;
-                    
                 }
 
                 switch (value)
@@ -64,7 +62,7 @@ namespace YIP
                         laba4();
                         break;
                     case 5:
-                        
+
                         break;
                     case 6:
 
@@ -95,7 +93,6 @@ namespace YIP
         {
             message("Реализовать интерфейсы и показать их работоспособность. " +
                     "Ввод данных должен производиться с клавиатуры");
-            
             Square sqr = new Square(10);
             sqr.draw();
 
@@ -103,13 +100,16 @@ namespace YIP
             sqr.x1 = 15;
 
             sqr.draw();
-            
+
             Console.ReadKey();
 
-            
+            Circle circ = new Circle(40, 10, 8);
+            circ.draw();
 
+            Console.ReadLine();
         }
 
+//2-502-5/502-5     //ipe
         private static void laba2()
         {
             message(
