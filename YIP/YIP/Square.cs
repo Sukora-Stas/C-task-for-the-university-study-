@@ -4,7 +4,7 @@ namespace YIP
 {
     public class Square : Figure2D
     {
-        private int x1 { get; set; }
+        public int x1 { get; set; }
         private int y1 { get; set; }
         private int x2 { get; set; }
         private int y2 { get; set; }
@@ -27,15 +27,16 @@ namespace YIP
              Console.Write("* ");   
             }
             
-            var str = new String('*', n);
-            Console.WriteLine(str);
             int i = 0;
-            while (i != n - 2)
+            while (i != n)
             {
-                Console.WriteLine("*" + new string(' ', n - 2) + "*");
+                Console.WriteLine("*" + new string(' ', n*2) + "*");
                 i++;
             }
-            Console.WriteLine(str);
+            for (int j = 0; j < n; j++)
+            {
+                Console.Write("* ");   
+            }
             Console.ReadLine();
         }
 

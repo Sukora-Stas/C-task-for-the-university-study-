@@ -1,17 +1,38 @@
-﻿namespace YIP
+﻿using System;
+
+namespace YIP
 {
     public class Circle : Figure2D
     {
-        private int x { get; set; }
-        private int y { get; set; }
+        public int x { get; set; }
+        public int y { get; set; }
+        public int radius { get; set; }
+        public int x2 { get; set; }
 
         public Circle()
         {
         }
 
+
         public void draw()
         {
-            throw new System.NotImplementedException();
+            Action<int, int> write = (xp, yp) =>
+            {
+                Console.SetCursorPosition(xp, yp);
+                Console.Write("*");
+            };
+
+            int centerX = 40, centerY = 10, radius = 8, x = -radius;
+            while (x < radius)
+            {
+                var y = (int) Math.Floor(Math.Sqrt(radius * radius - x * x));
+
+                write(x + centerX, y + centerY);
+                y = -y;
+                write(x + centerX, y + centerY);
+                x++;
+            }
+            Console.ReadLine();
         }
 
         public void move(int x1, int x2, int y1, int y2)

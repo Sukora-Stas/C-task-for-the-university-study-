@@ -67,7 +67,7 @@ namespace YIP
                         
                         break;
                     case 6:
-                        test2();
+
                         break;
                     case 7:
                         break;
@@ -91,28 +91,6 @@ namespace YIP
             _del.Invoke();
         }
 
-        private static void test2()
-        {
-            Action<int, int> write = (xp, yp) =>
-            {
-                Console.SetCursorPosition(xp, yp);
-                message("*", false);
-            };
-
-            int centerX = 40, centerY = 10, radius = 8, x = -radius;
-            while (x < radius)
-            {
-                var y = (int) Math.Floor(Math.Sqrt(radius * radius - x * x));
-
-                write(x + centerX, y + centerY);
-                y = -y;
-                write(x + centerX, y + centerY);
-                x++;
-            }
-            Console.ReadLine();
-        }
-
-
         private static void laba4()
         {
             message("Реализовать интерфейсы и показать их работоспособность. " +
@@ -120,6 +98,16 @@ namespace YIP
             
             Square sqr = new Square(10);
             sqr.draw();
+
+            Console.ReadKey();
+            sqr.x1 = 15;
+
+            sqr.draw();
+            
+            Console.ReadKey();
+
+            
+
         }
 
         private static void laba2()
