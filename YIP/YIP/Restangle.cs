@@ -1,31 +1,55 @@
-﻿namespace YIP
+﻿using System;
+
+namespace YIP
 {
     public class Restangle : Figure2D
     {
-        private int x1 { get; set; }
-        private int y1 { get; set; }
-        private int x2 { get; set; }
-        private int y2 { get; set; }
+        private int height { get; set; }
+        private int width { get; set; }
+
 
         public Restangle()
         {
         }
 
+        public Restangle(int height, int width)
+        {
+            this.height = height;
+            this.width = width;
+        }
+
         public void draw()
         {
+            
+            int n =width;
+
+            for (int j = 0; j < n; j++)
+            {
+                Console.Write("* ");   
+            }
+            
+            int i = 0;
+            while (i != height)
+            {
+                Console.WriteLine("*" + new string(' ', height) + "*");
+                i++;
+            }
+            for (int j = 0; j < n; j++)
+            {
+                Console.Write("* ");   
+            }
+            Console.ReadLine();
+            
         }
 
         public void move(int x1, int x2, int y1, int y2)
         {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.x2 = x2;
-            this.y2 = y2;
+            throw new NotImplementedException();
         }
+
 
         public void scale(int scale)
         {
-            throw new System.NotImplementedException();
         }
 
         public void Rotate(double radius)

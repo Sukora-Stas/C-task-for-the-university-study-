@@ -8,9 +8,12 @@ namespace YIP
         public int centerY { get; set; }
         public int radius { get; set; }
 
+
         public Circle()
         {
         }
+        
+        
 
         public Circle(int centerX, int centerY, int radius)
         {
@@ -39,12 +42,10 @@ namespace YIP
                 x++;
             }
             Console.ReadLine();
-
         }
 
         public void move(int x1, int x2, int y1, int y2)
         {
-           
         }
 
         public void scale(int scale)

@@ -20,22 +20,22 @@ namespace YIP
 
         public void draw()
         {
-            int n =x1;
+            int n = x1;
 
             for (int j = 0; j < n; j++)
             {
-             Console.Write("* ");   
+                Console.Write("* ");
             }
-            
+
             int i = 0;
             while (i != n)
             {
-                Console.WriteLine("*" + new string(' ', n*2) + "*");
+                Console.WriteLine("*" + new string(' ', n * 2) + "*");
                 i++;
             }
             for (int j = 0; j < n; j++)
             {
-                Console.Write("* ");   
+                Console.Write("* ");
             }
             Console.ReadLine();
         }
@@ -51,12 +51,10 @@ namespace YIP
 
         public void scale(int scale)
         {
-            throw new System.NotImplementedException();
         }
 
         public void Rotate(double radius)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

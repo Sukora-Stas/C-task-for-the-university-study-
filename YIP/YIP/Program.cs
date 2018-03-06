@@ -89,24 +89,48 @@ namespace YIP
             _del.Invoke();
         }
 
-        private static void laba4()
+        
+
+        private static void laba1()
         {
-            message("Реализовать интерфейсы и показать их работоспособность. " +
-                    "Ввод данных должен производиться с клавиатуры");
-            Square sqr = new Square(10);
-            sqr.draw();
+            message("Используя среду разработки Microsoft Visual Studio,\n" +
+                    " создать консоль-ное приложение на языке программирования C#.\n" +
+                    " Приложение должно вы-числять значение выражения (см. варианты).\n" +
+                    " Ввод данных должен произво-диться с клавиатуры.");
+            message("input variable");
+            message("a: ", false);
+            int a = int.Parse(read());
 
-            Console.ReadKey();
-            sqr.x1 = 15;
+            Console.Write("b: ");
+            int b = int.Parse(read());
 
-            sqr.draw();
+            Console.Write("c: ");
+            int c = int.Parse(read());
 
-            Console.ReadKey();
 
-            Circle circ = new Circle(40, 10, 8);
-            circ.draw();
+            double sum = 0;
 
-            Console.ReadLine();
+            if (a == 0)
+            {
+                Console.WriteLine("На ноль делить нельзя");
+                read();
+                return;
+            }
+            
+            if (b == 0)
+            {
+                Console.WriteLine("В отрицательную степень ноль не возводится");
+                read();
+                return;
+            }
+
+            sum = ((b + Math.Sqrt(Math.Pow(b, 2) + 4 * a * c)) / 2 * a) - Math.Pow(a, 3) * c + Math.Pow(b, -2);
+
+
+            message("Otvet: " + sum, false);
+
+
+            read();
         }
 
 //2-502-5/502-5     //ipe
@@ -116,6 +140,7 @@ namespace YIP
                 "Построить систему классов для описания плоских геометрических фигур: круга, квадрата, прямоугольника.\n" +
                 " Предусмотреть методы для создания объ-ектов, перемещения на плоскости,\n" +
                 " изменения размеров и поворота на задан-ный угол.\n");
+            read();
         }
 
 
@@ -135,7 +160,7 @@ namespace YIP
 
             for (int i = 0; i < arr.Length; i++)
             {
-                arr[i] = rnd.Next(1, 1001);
+                arr[i] = rnd.Next(1, 101);
                 if (i == 4)
                 {
                     message(arr[i] + " ", false);
@@ -158,33 +183,29 @@ namespace YIP
             read();
         }
 
-
-        private static void laba1()
+        private static void laba4()
         {
-            message("Используя среду разработки Microsoft Visual Studio,\n" +
-                    " создать консоль-ное приложение на языке программирования C#.\n" +
-                    " Приложение должно вы-числять значение выражения (см. варианты).\n" +
-                    " Ввод данных должен произво-диться с клавиатуры.");
-            message("input variable");
-            message("a: ", false);
-            int a = int.Parse(read());
+            message("Реализовать интерфейсы и показать их работоспособность. " +
+                    "Ввод данных должен производиться с клавиатуры");
+            Square sqr = new Square(10);
+            sqr.draw();
 
-            Console.Write("b: ");
-            int b = int.Parse(read());
+            Console.ReadKey();
+            sqr.x1 = 15;
 
-            Console.Write("c: ");
-            int c = int.Parse(read());
+            sqr.draw();
 
+            Console.ReadKey();
 
-            double sum = 0;
+            Restangle res = new Restangle(20, 10);
+            res.draw();
 
-            sum = ((b + Math.Sqrt(Math.Pow(b, 2) + 4 * a * c)) / 2 * a) - Math.Pow(a, 3) * c + Math.Pow(b, -2);
+            Console.ReadKey();
 
+            Circle circ = new Circle(40, 10, 8);
+            circ.draw();
 
-            message("Otvet: " + sum, false);
-
-
-            read();
+            Console.ReadLine();
         }
 
 
