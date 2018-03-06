@@ -1,4 +1,6 @@
-﻿namespace YIP
+﻿using System;
+
+namespace YIP
 {
     public class Square : Figure2D
     {
@@ -11,8 +13,30 @@
         {
         }
 
+        public Square(int x1)
+        {
+            this.x1 = x1;
+        }
+
         public void draw()
         {
+            int n =x1;
+
+            for (int j = 0; j < n; j++)
+            {
+             Console.Write("* ");   
+            }
+            
+            var str = new String('*', n);
+            Console.WriteLine(str);
+            int i = 0;
+            while (i != n - 2)
+            {
+                Console.WriteLine("*" + new string(' ', n - 2) + "*");
+                i++;
+            }
+            Console.WriteLine(str);
+            Console.ReadLine();
         }
 
         public void move(int x1, int x2, int y1, int y2)

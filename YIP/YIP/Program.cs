@@ -24,17 +24,30 @@ namespace YIP
                 Console.Clear();
                 message("Hello man :) Variant 1. \nSukora and Stolpner");
                 message("Please select menu item");
-                message("1: Laba 1");
-                message("2: Laba 2");
-                message("3: Laba 3");
-                message("4: Laba 4");
-                message("5: Laba 5");
+                message("1: Laba 1 - done");//
+                message("2: Laba 2 - done");//
+                message("3: Laba 3 - done");//
+                message("4: Laba 4 - done");
+                message("5: Laba 5 - 50/50");
                 message("6: Laba 6");
                 message("7: Laba 7");
                 message("8: Laba 8");
                 message("9: Exit");
 
-                int value = int.Parse(read());
+                int value;
+                
+                try
+                {
+                    value = int.Parse(read());
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Input corect value");
+                    read();
+                    continue;
+                    
+                }
 
                 switch (value)
                 {
@@ -51,7 +64,7 @@ namespace YIP
                         laba4();
                         break;
                     case 5:
-                        test();
+                        
                         break;
                     case 6:
                         test2();
@@ -61,7 +74,7 @@ namespace YIP
                     case 8:
                         break;
                     case 9:
-                        message("Do you really want to go out? Y/N");
+                        message("Do you want to go out? Y/N");
                         string exit = read();
                         if (exit.ToLower().Equals("y"))
                             ex = false;
@@ -99,26 +112,14 @@ namespace YIP
             Console.ReadLine();
         }
 
-        private static void test()
-        {
-            int n = int.Parse(read());
-            var str = new String('*', n);
-            message(str);
-            int i = 0;
-            while (i != n - 2)
-            {
-                message("*" + new string(' ', n - 2) + "*");
-                i++;
-            }
-            message(str);
-            read();
-        }
-
 
         private static void laba4()
         {
             message("Реализовать интерфейсы и показать их работоспособность. " +
                     "Ввод данных должен производиться с клавиатуры");
+            
+            Square sqr = new Square(10);
+            sqr.draw();
         }
 
         private static void laba2()

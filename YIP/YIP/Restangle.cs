@@ -28,10 +28,6 @@
             throw new System.NotImplementedException();
         }
 
-        public void Scale(int scale)
-        {
-        }
-
         public void Rotate(double radius)
         {
         }
