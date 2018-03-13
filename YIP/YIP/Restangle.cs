@@ -4,9 +4,56 @@ namespace YIP
 {
     public class Restangle : Figure2D
     {
-        private int height { get; set; }
-        private int width { get; set; }
+        public int height { get; set; }
+        public int width { get; set; }
 
+
+        int _sum; // Переменная для хранения суммы
+
+        public Restangle(int sum)
+        {
+            _sum = sum;
+        }
+
+        public int CurrentSum
+        {
+            get { return _sum; }
+        }
+
+        public void Put(int sum)
+        {
+            _sum += sum;
+        }
+
+
+
+
+        // Объявляем делегат
+        public delegate void AccountStateHandler(string message);
+        // Создаем переменную делегата
+        AccountStateHandler _del;
+
+        // Регистрируем делегат
+        public void RegisterHandler(AccountStateHandler del)
+        {
+            _del = del;
+        }
+
+        public void Withdraw(int sum)
+        {
+            if (sum <= _sum)
+            {
+                _sum -= sum;
+
+                if (_del != null)
+                    _del($"Сумма {sum} снята со счета");
+            }
+            else
+            {
+                if (_del != null)
+                    _del("Недостаточно денег на счете");
+            }
+        }
 
         public Restangle()
         {

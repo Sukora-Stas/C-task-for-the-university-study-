@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,7 +66,7 @@ namespace YIP
 
                         break;
                     case 6:
-
+                        laba6();
                         break;
                     case 7:
                         break;
@@ -207,6 +208,77 @@ namespace YIP
 
             Console.ReadLine();
         }
+
+      /*  private static void laba6()
+        {
+            // создаем банковский счет
+            Restangle account = new Restangle(200);
+        // Добавляем в делегат ссылку на метод Show_Message
+        // а сам делегат передается в качестве параметра метода RegisterHandler
+        account.RegisterHandler(new Restangle.AccountStateHandler(Show_Message));
+        // Два раза подряд пытаемся снять деньги
+        account.Withdraw(100);
+        account.Withdraw(150);
+        Console.ReadLine();
+    }
+    private static void Show_Message(String message)
+    {
+    Console.WriteLine(message);
+    }
+    */
+
+    private static void laba6()
+        {
+            string path = @"D:\test.txt";
+            try
+            {
+                message("************FULL**********");
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    message(sr.ReadToEnd());
+                }
+                message();
+
+                Square sq = new Square();
+                sq.x1 = Convert.ToInt32(read());
+
+                Restangle res = new Restangle(10,20);
+                    using (StreamWriter sw = new StreamWriter(path,true, System.Text.Encoding.Default))
+                {
+                    sw.WriteLine(sq.x1);
+                  /*  sw.WriteLine("Перменная прямоугольника height = " + res.height);
+                    sw.WriteLine("Перменная прямоугольника width = " + res.width);*/
+                }
+
+
+                message("************LINE**********");
+                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.Default))
+                {
+                    string line;
+                    
+                    while ((line = sr.ReadLine())!=null)
+                    {
+                        sq.x1 = Convert.ToInt32(line);
+
+                        if (sr.ReadLine() == null)
+                        {
+                            message("Перменная квадрата X1 = " + sq.x1);
+
+
+                        }
+
+                    }
+                }
+
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                message(ex.Message);
+            }
+        }
+
+       
 
 
         private static void message(string text = "", bool line = true)
