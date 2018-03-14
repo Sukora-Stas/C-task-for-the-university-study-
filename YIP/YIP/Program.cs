@@ -30,8 +30,8 @@ namespace YIP
                 message("3: Laba 3 - done"); //
                 message("4: Laba 4 - done");
                 message("5: Laba 5 - 50/50");
-                message("6: Laba 6");
-                message("7: Laba 7");
+                message("6: Laba 6 - done");
+                message("7: Laba 7 - done");
                 message("8: Laba 8");
                 message("9: Exit");
 
@@ -63,7 +63,7 @@ namespace YIP
                         laba4();
                         break;
                     case 5:
-
+                        laba5();
                         break;
                     case 6:
                         laba6();
@@ -90,7 +90,6 @@ namespace YIP
             _del.Invoke();
         }
 
-        
 
         private static void laba1()
         {
@@ -117,7 +116,7 @@ namespace YIP
                 read();
                 return;
             }
-            
+
             if (b == 0)
             {
                 Console.WriteLine("В отрицательную степень ноль не возводится");
@@ -169,6 +168,7 @@ namespace YIP
                     message();
                     continue;
                 }
+
                 message(arr[i] + " ", false);
             }
 
@@ -178,6 +178,7 @@ namespace YIP
             {
                 if (arr[i] % K == 0) sum += arr[i];
             }
+
             message();
             message("Otvet: " + sum);
 
@@ -209,25 +210,26 @@ namespace YIP
             Console.ReadLine();
         }
 
-      /*  private static void laba6()
+        private static void laba5()
         {
             // создаем банковский счет
             Restangle account = new Restangle(200);
-        // Добавляем в делегат ссылку на метод Show_Message
-        // а сам делегат передается в качестве параметра метода RegisterHandler
-        account.RegisterHandler(new Restangle.AccountStateHandler(Show_Message));
-        // Два раза подряд пытаемся снять деньги
-        account.Withdraw(100);
-        account.Withdraw(150);
-        Console.ReadLine();
-    }
-    private static void Show_Message(String message)
-    {
-    Console.WriteLine(message);
-    }
-    */
+            // Добавляем в делегат ссылку на метод Show_Message
+            // а сам делегат передается в качестве параметра метода RegisterHandler
+            account.RegisterHandler(new Restangle.AccountStateHandler(Show_Message));
+            // Два раза подряд пытаемся снять деньги
+            account.Withdraw(100);
+            account.Withdraw(150);
+            Console.ReadLine();
+        }
 
-    private static void laba6()
+        private static void Show_Message(String message)
+        {
+            Console.WriteLine(message);
+        }
+
+
+        private static void laba6()
         {
             string path = @"D:\test.txt";
             try
@@ -237,17 +239,18 @@ namespace YIP
                 {
                     message(sr.ReadToEnd());
                 }
+
                 message();
 
                 Square sq = new Square();
                 sq.x1 = Convert.ToInt32(read());
 
-                Restangle res = new Restangle(10,20);
-                    using (StreamWriter sw = new StreamWriter(path,true, System.Text.Encoding.Default))
+                Restangle res = new Restangle(10, 20);
+                using (StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.Default))
                 {
                     sw.WriteLine(sq.x1);
-                  /*  sw.WriteLine("Перменная прямоугольника height = " + res.height);
-                    sw.WriteLine("Перменная прямоугольника width = " + res.width);*/
+                    /*  sw.WriteLine("Перменная прямоугольника height = " + res.height);
+                      sw.WriteLine("Перменная прямоугольника width = " + res.width);*/
                 }
 
 
@@ -255,18 +258,15 @@ namespace YIP
                 using (StreamReader sr = new StreamReader(path, System.Text.Encoding.Default))
                 {
                     string line;
-                    
-                    while ((line = sr.ReadLine())!=null)
+
+                    while ((line = sr.ReadLine()) != null)
                     {
                         sq.x1 = Convert.ToInt32(line);
 
                         if (sr.ReadLine() == null)
                         {
                             message("Перменная квадрата X1 = " + sq.x1);
-
-
                         }
-
                     }
                 }
 
@@ -277,8 +277,6 @@ namespace YIP
                 message(ex.Message);
             }
         }
-
-       
 
 
         private static void message(string text = "", bool line = true)
