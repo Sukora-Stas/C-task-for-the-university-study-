@@ -4,29 +4,22 @@ namespace YIP
 {
     public class Restangle : Figure2D
     {
-        public int height { get; set; }
+        public int height {
+            get;
+
+            set; }
         public int width { get; set; }
 
 
         int _sum; // Переменная для хранения суммы
 
-        public Restangle(int sum)
+        public Restangle(int height, int width)
         {
-            _sum = sum;
+            this.height = height;
+            this.width = width;
+
+           
         }
-
-        public int CurrentSum
-        {
-            get { return _sum; }
-        }
-
-        public void Put(int sum)
-        {
-            _sum += sum;
-        }
-
-
-
 
         // Объявляем делегат
         public delegate void AccountStateHandler(string message);
@@ -39,31 +32,10 @@ namespace YIP
             _del = del;
         }
 
-        public void Withdraw(int sum)
-        {
-            if (sum <= _sum)
-            {
-                _sum -= sum;
-
-                if (_del != null)
-                    _del($"Сумма {sum} снята со счета");
-            }
-            else
-            {
-                if (_del != null)
-                    _del("Недостаточно денег на счете");
-            }
-        }
-
         public Restangle()
         {
         }
 
-        public Restangle(int height, int width)
-        {
-            this.height = height;
-            this.width = width;
-        }
 
         public void draw()
         {
@@ -91,16 +63,20 @@ namespace YIP
 
         public void move(int x1, int x2, int y1, int y2)
         {
-            throw new NotImplementedException();
+            if (_del != null)
+                _del($"Поворачиваем на {x1} градусов");
         }
 
 
         public void scale(int scale)
         {
+
         }
 
         public void Rotate(double radius)
         {
+                if (_del != null)
+                    _del($"Поворачиваем на {radius} градусов");
         }
     }
 }

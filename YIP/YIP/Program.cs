@@ -214,19 +214,21 @@ namespace YIP
         private static void laba5()
         {
             // создаем банковский счет
-            Restangle account = new Restangle(200);
+            Restangle restangle = new Restangle();
             // Добавляем в делегат ссылку на метод Show_Message
             // а сам делегат передается в качестве параметра метода RegisterHandler
-            account.RegisterHandler(new Restangle.AccountStateHandler(Show_Message));
-            // Два раза подряд пытаемся снять деньги
-            account.Withdraw(100);
-            account.Withdraw(150);
+            restangle.RegisterHandler(new Restangle.AccountStateHandler(Show_Message));
+
+            //restangle = new Restangle(200, 300);
+
+            restangle.Rotate(5);
+
             Console.ReadLine();
         }
 
-        private static void Show_Message(String message)
+        private static void Show_Message(String mess)
         {
-            Console.WriteLine(message);
+            message(mess);
         }
 
 
