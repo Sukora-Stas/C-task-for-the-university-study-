@@ -31,3 +31,7 @@ ipch/
 *.opensdf
 *.sdf
 *.cachefile
+/Kursach/.vs/Kursach/v15/Browse.VC.db
+/Kursach/.vs/Kursach/v15/.suo
+*.tt
+*.edmx

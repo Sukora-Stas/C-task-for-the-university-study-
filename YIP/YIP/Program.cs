@@ -37,6 +37,7 @@ namespace YIP
 
                 int value;
 
+
                 try
                 {
                     value = int.Parse(read());
