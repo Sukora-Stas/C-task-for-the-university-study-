@@ -70,7 +70,8 @@ namespace YIP
 
         public void scale(int scale)
         {
-
+            if (_del != null)
+                _del($"Изменяем размер на {scale}");
         }
 
         public void Rotate(double radius)

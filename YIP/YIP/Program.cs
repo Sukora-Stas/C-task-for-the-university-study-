@@ -32,7 +32,7 @@ namespace YIP
                 message("5: Laba 5 - 50/50");
                 message("6: Laba 6 - done");
                 message("7: Laba 7 - done");
-                message("8: Laba 8");
+                message("8: Laba 8 - done");
                 message("9: Exit");
 
                 int value;
@@ -213,7 +213,7 @@ namespace YIP
 
         private static void laba5()
         {
-            // создаем банковский счет
+            // создаем 
             Restangle restangle = new Restangle();
             // Добавляем в делегат ссылку на метод Show_Message
             // а сам делегат передается в качестве параметра метода RegisterHandler
@@ -222,6 +222,8 @@ namespace YIP
             //restangle = new Restangle(200, 300);
 
             restangle.Rotate(5);
+            
+            restangle.scale(15);
 
             Console.ReadLine();
         }
